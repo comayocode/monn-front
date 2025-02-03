@@ -18,14 +18,13 @@ function App() {
         {/* Ruta principal */}
         <Route path='/' element={<LandingPage />} />
 
-        {/* Rutas protegidas para admin */}
+        {/* Rutas protegidas para admin y user */}
         <Route
           path='/admin'
           element={
             <PrivateRoute
               element={<AdminPanel />}
-              role='admin'
-              requiredRole='admin'
+              requiredRoles={['admin', 'user']}
             />
           }
         >
@@ -34,8 +33,7 @@ function App() {
             element={
               <PrivateRoute
                 element={<Hero />}
-                role='admin'
-                requiredRole='admin'
+                requiredRoles={['admin', 'user']}
               />
             }
           />
@@ -44,8 +42,7 @@ function App() {
             element={
               <PrivateRoute
                 element={<AboutMe />}
-                role='admin'
-                requiredRole='admin'
+                requiredRoles={['admin', 'user']}
               />
             }
           />
@@ -54,8 +51,7 @@ function App() {
             element={
               <PrivateRoute
                 element={<Products />}
-                role='admin'
-                requiredRole='admin'
+                requiredRoles={['admin', 'user']}
               />
             }
           />
@@ -64,21 +60,19 @@ function App() {
             element={
               <PrivateRoute
                 element={<Contact />}
-                role='admin'
-                requiredRole='admin'
+                requiredRoles={['admin', 'user']}
               />
             }
           />
         </Route>
 
-        {/* Rutas para usuarios */}
+        {/* Ruta para account */}
         <Route
           path='/landing'
           element={
             <PrivateRoute
               element={<LandingPage />}
-              role='user'
-              requiredRole='user'
+              requiredRoles={['account']}
             />
           }
         />

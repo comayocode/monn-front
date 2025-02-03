@@ -1,23 +1,32 @@
 .admin-panel {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  background-color: #242424;
+}
+
+.admin-content {
+  flex: 1;
   padding: 20px;
+  background-color: #242424;
+  color: #e0e0e0;
+  overflow-y: auto;
 }
 
 .admin-panel h1 {
   font-size: 32px;
-  color: #333;
+  color: #e0e0e0;
+  margin-bottom: 20px;
 }
 
 .admin-panel p {
   font-size: 18px;
-  color: #666;
+  color: #e0e0e0;
+  margin-bottom: 20px;
 }
 
 .logout-button {
   margin-top: 20px;
-  background-color: #dc3545; /* Rojo para indicar logout */
+  background-color: #4e73df;
   color: white;
   padding: 10px 20px;
   font-size: 16px;
@@ -28,5 +37,5 @@
 }
 
 .logout-button:hover {
-  background-color: #c82333; /* Rojo más oscuro al hacer hover */
+  background-color: #375abb;
 }

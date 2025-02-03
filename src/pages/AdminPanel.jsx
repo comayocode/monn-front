@@ -1,30 +1,33 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Cambiar a useNavigate
-import { logout, getCurrentUser, isAuthenticated } from '../services/authService'; // Importamos las funciones de auth
+import { useNavigate } from 'react-router-dom';
+import { logout, getCurrentUser, isAuthenticated } from '../services/authService';
+import Sidebar from '../components/adminPanel/Sidebar';
 import './AdminPanel.css';
 
 function AdminPanel() {
-  const navigate = useNavigate(); // Usamos useNavigate en vez de useHistory
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Si el usuario no está autenticado, redirigir al login
     if (!isAuthenticated()) {
-      navigate('/login'); // Redirigir usando navigate
+      navigate('/login');
     }
   }, [navigate]);
 
   const handleLogout = () => {
-    logout(); // Limpiamos la sesión
-    navigate('/login'); // Redirigimos al login
+    logout();
+    navigate('/login');
   };
 
-  const user = getCurrentUser(); // Obtenemos el usuario actual
+  const user = getCurrentUser();
 
   return (
     <div className="admin-panel">
-      <h1>Panel de Administración</h1>
-      <p>Bienvenido, {user ? user.username : 'Usuario'}</p>
-      <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
+      <Sidebar />
+      <div className="admin-content">
+        <h1>Panel de Administración</h1>
+        <p>Bienvenido, {user ? user.username : 'Usuario'}</p>
+        <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
+      </div>
     </div>
   );
 }
