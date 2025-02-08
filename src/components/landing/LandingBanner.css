@@ -1,0 +1,44 @@
+.landing-banner {
+  background-image: url('../../assets/bannerimg.svg');
+  background-color: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-banner__text {
+  color: var(--text-dark-bg);
+  font-size: var(--p1-desktop-size);
+  font-weight: var(--p1-desktop-weight);
+  line-height: var(--p1-desktop-line-height);
+  text-align: center;
+}
+
+.landing-banner__info {
+  font-weight: bold;
+  font-size: var(--p1-desktop-size);
+  line-height: var(--p1-desktop-line-height);
+  color: #F845FC; /*TODO: Cambiar color */
+  margin-left: 10px;
+}
+
+.landing-banner__btn {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);right: 20px;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.landing-banner__btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+

@@ -1,13 +1,13 @@
 .admin-panel {
   display: flex;
   height: 100vh;
-  background-color: #242424;
+  background-color: #1e1e2d; /* Fondo oscuro */
 }
 
 .admin-content {
   flex: 1;
   padding: 20px;
-  background-color: #242424;
+  background-color: #1e1e2d;
   color: #e0e0e0;
   overflow-y: auto;
 }

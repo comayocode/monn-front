@@ -1,0 +1,81 @@
+.landing-navbar {
+  background-color: var(--bg-dark);
+  height: 99px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 162px 0 162px;
+}
+
+.navbar-container__logo {
+  display: flex;
+  align-items: center;
+  font-size: var(--h4-desktop-size);
+  font-weight: var(--p1-desktop-weight);
+  color: var(--text-dark-bg);
+}
+
+.navbar-container__logo img {
+  height: 48px;
+  margin-right: 8px;
+}
+
+.navbar-container__links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-container__link {
+  text-decoration: none;
+  font-size: var(--p1-desktop-size);
+  font-weight: 500;
+  color: var(--text-dark-bg);
+  transition: color 0.3s ease;
+}
+
+.navbar-container__link:hover {
+  color: var(--cta);
+}
+
+.navbar-container__login {
+  width: 214.77px;
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.navbar-container__login-button {
+  width: 170px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 32px;
+  background-color: #605dec;
+  color: var(--text-dark-bg);
+  font: var(--btn-link-large);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navbar-container__login-button:hover {
+  background-color: #4b48d9;
+}
+
+.navbar-container__login-button img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.4s ease;
+}
+
+.navbar-container__login-button:hover img {
+  transform: translateX(4px);
+}

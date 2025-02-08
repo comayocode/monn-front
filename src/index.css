@@ -1,68 +1,104 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --bg-dark: #191919;
+  --bg-light: #FFFFFF;
+  --cta: #605DEC;
+  --text-dark-bg: #FFFFFF;
+  --para-dark-bg: #999999;
+  --text-light-bg: #262626;
+  --para-light-bg: #999999;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Tipografía - Desktop */
+  --h1-desktop-weight: bold;
+  --h1-desktop-size: 56px;
+  --h1-desktop-line-height: 110%;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  --h2-desktop-weight: bold;
+  --h2-desktop-size: 48px;
+  --h2-desktop-line-height: 120%;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  --h3-desktop-weight: bold;
+  --h3-desktop-size: 32px;
+  --h3-desktop-line-height: 120%;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  --h4-desktop-weight: bold;
+  --h4-desktop-size: 24px;
+  --h4-desktop-line-height: 120%;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  --h5-desktop-weight: bold;
+  --h5-desktop-size: 18px;
+  --h5-desktop-line-height: 120%;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+  --p1-desktop-weight: normal;
+  --p1-desktop-size: 18px;
+  --p1-desktop-line-height: 140%;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  --p2-desktop-weight: normal;
+  --p2-desktop-size: 16px;
+  --p2-desktop-line-height: 140%;
+
+  /* Tipografía - Tablet */
+  --h1-tablet-weight: bold;
+  --h1-tablet-size: 48px;
+  --h1-tablet-line-height: 110%;
+
+  --h2-tablet-weight: bold;
+  --h2-tablet-size: 32px;
+  --h2-tablet-line-height: 120%;
+
+  --h3-tablet-weight: bold;
+  --h3-tablet-size: 24px;
+  --h3-tablet-line-height: 120%;
+
+  --h4-tablet-weight: bold;
+  --h4-tablet-size: 18px;
+  --h4-tablet-line-height: 120%;
+
+  --h5-tablet-weight: bold;
+  --h5-tablet-size: 16px;
+  --h5-tablet-line-height: 120%;
+
+  --p1-tablet-weight: normal;
+  --p1-tablet-size: 16px;
+  --p1-tablet-line-height: 130%;
+
+  --p2-tablet-weight: normal;
+  --p2-tablet-size: 14px;
+  --p2-tablet-line-height: 130%;
+
+  /* Tipografía - Mobile */
+  --h1-mobile-weight: bold;
+  --h1-mobile-size: 24px;
+  --h1-mobile-line-height: 110%;
+
+  --h2-mobile-weight: bold;
+  --h2-mobile-size: 20px;
+  --h2-mobile-line-height: 120%;
+
+  --h3-mobile-weight: bold;
+  --h3-mobile-size: 18px;
+  --h3-mobile-line-height: 120%;
+
+  --h4-mobile-weight: bold;
+  --h4-mobile-size: 16px;
+  --h4-mobile-line-height: 120%;
+
+  --h5-mobile-weight: bold;
+  --h5-mobile-size: 14px;
+  --h5-mobile-line-height: 120%;
+
+  --p1-mobile-weight: normal;
+  --p1-mobile-size: 16px;
+  --p1-mobile-line-height: 130%;
+
+  --p2-mobile-weight: normal;
+  --p2-mobile-size: 14px;
+  --p2-mobile-line-height: 130%;
+
+  /* Botones - Links */
+  --btn-link-large: 400 20px/24px Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --btn-link-normal: 400 20px/24px Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --btn-link-medium: 400 16px/20px Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --btn-link-small: 400 16px/16px Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
 }
