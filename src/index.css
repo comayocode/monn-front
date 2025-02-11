@@ -8,8 +8,10 @@
   --text-dark-bg: #FFFFFF;
   --para-dark-bg: #999999;
   --text-light-bg: #262626;
+  --secondary-bg-admin-panel: #262626;
   --para-light-bg: #999999;
   --bg-hover: #F6F5FF;
+  --menu-links-hover-dark: #2F2F2F;
 
   /* Tipografía - Desktop */
   --h1-desktop: bold 56px/100% Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

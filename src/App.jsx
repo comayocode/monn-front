@@ -24,6 +24,9 @@ function App() {
             />
           }
         >
+          <Route path='op-01' element={<h1>Vista de Clientes</h1>} />
+          <Route path='op-02' element={<h1>Vista de Productos</h1>} />
+          <Route path='op-03' element={<h1>Vista de Usuarios</h1>} />
         </Route>
 
         {/* Ruta para account */}
