@@ -1,0 +1,128 @@
+.landing-hero {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  height: 800px;
+  position: relative;
+  margin-left: 162px;
+}
+
+.hero-section {
+  position: absolute;
+  right: 0;
+}
+
+.hero-info {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 758px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-light);
+}
+
+.hero-info__tittle {
+  font: var(--h1-desktop);
+  color: var(--text-light-bg);
+}
+
+.hero-info__body {
+  font: var(--p1-desktop);
+  color: var(--para-light-bg);
+}
+
+.hero-info__cta {
+  margin: 60px 0;
+  display: flex;
+  align-content: space-between;
+  gap: 20px;
+}
+/* ----------------------------------------*/
+/* BOTONES */
+
+.hero-info__cta-btn--primary, .hero-info__cta-btn--secondary {
+  display: flex;
+  align-items: center;
+  padding: 20px 32px;
+  font: var(--btn-link-large);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-info__cta-btn--primary{
+  color: var(--text-dark-bg);
+  background-color: #605dec;
+}
+
+.hero-info__cta-btn--secondary{
+  background-color: var(--bg-light);
+  color: var(--cta);
+  border: 1px solid var(--cta);
+}
+
+.hero-info__cta-btn--primary:hover {
+  background-color: #4b48d9;
+}
+
+.hero-info__cta-btn--secondary:hover {
+  background-color: var(--bg-hover);
+}
+/* ----------------------------------------*/
+/* CARDS */
+
+.hero-info__cards {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-info__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: 4px;
+  background-color: var(--bg-dark);
+  width: 239px;
+}
+
+.her-info__card-title {
+  font: var(--h3-desktop);
+  color: var(--text-dark-bg);
+  width: 191px;
+  line-height: 0px;
+  margin: 20px 0;
+}
+
+.her-info__card-body {
+  font: var(--p1-desktop);
+  color: var(--para-dark-bg);
+  width: 191px;
+  line-height: 0px;
+}
+
+.hero-section {
+  background-color: var(--bg-dark);
+  width: 920px;
+  /* height: 800px; */
+}
+
+.landing-hero__abstract-design {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  width: 920px;
+  /* height: 800px; */
+}
+
+.landing-hero__hero-img {
+  position: relative;
+  z-index: 99;
+  width: 920px;
+}
