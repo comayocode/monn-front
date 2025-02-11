@@ -1,3 +1,5 @@
+ /* TODO: ARREGLAR LAS TIPOGRAFÍAS EN UNA ÚNICA LÍNEA */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --bg-dark: #191919;
@@ -7,19 +9,18 @@
   --para-dark-bg: #999999;
   --text-light-bg: #262626;
   --para-light-bg: #999999;
+  --bg-hover: #F6F5FF;
 
   /* Tipografía - Desktop */
-  --h1-desktop-weight: bold;
-  --h1-desktop-size: 56px;
-  --h1-desktop-line-height: 110%;
+  --h1-desktop: bold 56px/100% Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   --h2-desktop-weight: bold;
   --h2-desktop-size: 48px;
   --h2-desktop-line-height: 120%;
 
-  --h3-desktop-weight: bold;
-  --h3-desktop-size: 32px;
-  --h3-desktop-line-height: 120%;
+  --h3-desktop: bold 32px/120% Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* --h3-desktop-size: 32px; */
+  /* --h3-desktop-line-height: 120%; */
 
   --h4-desktop-weight: bold;
   --h4-desktop-size: 24px;
@@ -29,9 +30,9 @@
   --h5-desktop-size: 18px;
   --h5-desktop-line-height: 120%;
 
-  --p1-desktop-weight: normal;
-  --p1-desktop-size: 18px;
-  --p1-desktop-line-height: 140%;
+  --p1-desktop: normal 18px/140% Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* --p1-desktop-size: 18px;
+  --p1-desktop-line-height: 140%; */
 
   --p2-desktop-weight: normal;
   --p2-desktop-size: 16px;
