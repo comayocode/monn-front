@@ -1,0 +1,21 @@
+.logo {
+  display: flex;
+  width: 204px;
+  align-items: center;
+  font-size: var(--h4-desktop-size);
+  font-weight: var(--p1-desktop-weight);
+  color: var(--text-dark-bg);
+}
+
+.logo__text {
+  margin-left: 10px;
+}
+
+.sidebar--collapsed .logo {
+  width: 65px;
+}
+
+.sidebar--collapsed .logo__image {
+  display: block;
+  margin: 0 auto;
+}

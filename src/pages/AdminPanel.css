@@ -1,42 +1,13 @@
 .admin-panel {
   display: flex;
   height: 100vh;
-  background-color: #1e1e2d; /* Fondo oscuro */
 }
 
 .admin-content {
   flex: 1;
-  padding: 20px;
-  background-color: #1e1e2d;
+  padding: 30px 50px 89px 43px;
+  background-color: var(--admin-bg-dark);
   color: #e0e0e0;
   overflow-y: auto;
 }
 
-.admin-panel h1 {
-  font-size: 32px;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-}
-
-.admin-panel p {
-  font-size: 18px;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-}
-
-.logout-button {
-  margin-top: 20px;
-  background-color: #212121;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  height: 45px;
-}
-
-.logout-button:hover {
-  background-color: #2f2f2f;
-}

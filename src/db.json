@@ -2,21 +2,25 @@
   "users": [
     {
       "id": 1,
-      "username": "admin",
+      "username": "Armando Paredes",
       "password": "admin123",
-      "role": "admin"
-    },
+      "role": "admin",
+      "pic": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
+    }
+    ,
     {
       "id": 2,
-      "username": "user",
+      "username": "Cristian Paredes",
       "password": "user123",
-      "role": "user"
+      "role": "user",
+      "pic": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400"
     },
     {
       "id": 3,
       "username": "account",
       "password": "account123",
-      "role": "account"
+      "role": "account",
+      "pic": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400"
     }
   ]
 }
