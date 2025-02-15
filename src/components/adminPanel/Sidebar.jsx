@@ -28,7 +28,7 @@ function Sidebar({ isSidebarOpen }) {
             <>
               <li className='sidebar__link'>
                 <NavLink
-                  to='/admin/op-01'
+                  to='/admin/clientes'
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   <img
@@ -41,7 +41,7 @@ function Sidebar({ isSidebarOpen }) {
               </li>
               <li className='sidebar__link'>
                 <NavLink
-                  to='/admin/op-02'
+                  to='/admin/productos'
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   <img
@@ -54,7 +54,7 @@ function Sidebar({ isSidebarOpen }) {
               </li>
               <li className='sidebar__link'>
                 <NavLink
-                  to='/admin/op-03'
+                  to='/admin/usuarios'
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   <img
@@ -71,7 +71,7 @@ function Sidebar({ isSidebarOpen }) {
             <>
               <li className='sidebar__link'>
                 <NavLink
-                  to='/admin/op-01'
+                  to='/admin/clientes'
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   <img
@@ -84,7 +84,7 @@ function Sidebar({ isSidebarOpen }) {
               </li>
               <li className='sidebar__link'>
                 <NavLink
-                  to='/admin/op-02'
+                  to='/admin/productos'
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   <img

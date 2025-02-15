@@ -3,6 +3,9 @@ import AdminPanel from './pages/AdminPanel';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import PrivateRoute from './components/PrivateRoute';
+import Clients from './components/adminPanel/Clients';
+import Products from './components/adminPanel/Products';
+import Users from './components/adminPanel/Users';
 
 function App() {
   return (
@@ -24,9 +27,9 @@ function App() {
             />
           }
         >
-          <Route path='op-01' element={<h1>Vista de Clientes</h1>} />
-          <Route path='op-02' element={<h1>Vista de Productos</h1>} />
-          <Route path='op-03' element={<h1>Vista de Usuarios</h1>} />
+          <Route path='clientes' element={<Clients />} />
+          <Route path='productos' element={<Products />} />
+          <Route path='usuarios' element={<Users />} />
         </Route>
 
         {/* Ruta para account */}
