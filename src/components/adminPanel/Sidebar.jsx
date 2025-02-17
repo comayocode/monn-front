@@ -26,6 +26,19 @@ function Sidebar({ isSidebarOpen }) {
         <ul className='sidebar__links'>
           {user && user.role === 'admin' && (
             <>
+            <li className='sidebar__link'>
+                <NavLink
+                  to='/admin/dashboard'
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  <img
+                    className='sidebar__icon'
+                    src='/src/assets/dashboard.svg'
+                    alt='clientes'
+                  />
+                  {isSidebarOpen ? 'Dashboard' : ''}
+                </NavLink>
+              </li>
               <li className='sidebar__link'>
                 <NavLink
                   to='/admin/clientes'

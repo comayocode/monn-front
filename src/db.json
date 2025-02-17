@@ -6,8 +6,7 @@
       "password": "admin123",
       "role": "admin",
       "pic": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
-    }
-    ,
+    },
     {
       "id": 2,
       "username": "Cristian Paredes",
@@ -22,5 +21,85 @@
       "role": "account",
       "pic": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400"
     }
+  ],
+  "dashboardStats": [
+    {
+      "id": 1,
+      "title": "Total de clientes",
+      "number": 543,
+      "icon": "/src/assets/clients.svg",
+      "trend": "up",
+      "trendNumber": "▲ 8.5%",
+      "trendDescription": "Desde hace 1 semana"
+    },
+    {
+      "id": 2,
+      "title": "Total de productos",
+      "number": 129,
+      "icon": "/src/assets/package.svg",
+      "trend": "up",
+      "trendNumber": "▲ 2.1%",
+      "trendDescription": "Desde hace 1 semana"
+    },
+    {
+      "id": 3,
+      "title": "Total de ventas",
+      "number": 12528,
+      "icon": "/src/assets/shopping-cart.svg",
+      "trend": "down",
+      "trendNumber": "▼ 1.5%",
+      "trendDescription": "Desde hace 1 semana"
+    },
+    {
+      "id": 4,
+      "title": "Total ingresos pendientes",
+      "number": 12543123,
+      "icon": "/src/assets/dollar.svg",
+      "trend": "up",
+      "trendNumber": "▲ 10.5%",
+      "trendDescription": "Desde hace 1 semana"
+    },
+    {
+      "id": 5,
+      "title": "Total",
+      "number": 5221,
+      "icon": "/src/assets/tag.svg",
+      "trend": "equal",
+      "trendNumber": "= 0%",
+      "trendDescription": "Desde hace 1 semana"
+    }
+  ],
+  "sales": [
+    { "time": "2024-01-01", "value": 1200 },
+    { "time": "2024-01-02", "value": 1350 },
+    { "time": "2024-01-03", "value": 1600 },
+    { "time": "2024-01-04", "value": 1450 },
+    { "time": "2024-01-05", "value": 1700 },
+    { "time": "2024-01-06", "value": 1550 },
+    { "time": "2024-01-07", "value": 1900 },
+    { "time": "2024-01-08", "value": 2100 },
+    { "time": "2024-01-09", "value": 2200 },
+    { "time": "2024-01-10", "value": 1800 },
+    { "time": "2024-01-11", "value": 1750 },
+    { "time": "2024-01-12", "value": 2000 },
+    { "time": "2024-01-13", "value": 1950 },
+    { "time": "2024-01-14", "value": 1850 },
+    { "time": "2024-01-15", "value": 2500 },
+    { "time": "2024-01-16", "value": 2400 },
+    { "time": "2024-01-17", "value": 2600 },
+    { "time": "2024-01-18", "value": 2700 },
+    { "time": "2024-01-19", "value": 2800 },
+    { "time": "2024-01-20", "value": 2300 },
+    { "time": "2024-01-21", "value": 2250 },
+    { "time": "2024-01-22", "value": 2150 },
+    { "time": "2024-01-23", "value": 2000 },
+    { "time": "2024-01-24", "value": 1900 },
+    { "time": "2024-01-25", "value": 700 },
+    { "time": "2024-01-26", "value": 1800 },
+    { "time": "2024-01-27", "value": 1950 },
+    { "time": "2024-01-28", "value": 2050 },
+    { "time": "2024-01-29", "value": 2100 },
+    { "time": "2024-01-30", "value": 2200 },
+    { "time": "2024-01-31", "value": 2250 }
   ]
 }

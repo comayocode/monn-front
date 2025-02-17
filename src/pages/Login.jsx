@@ -17,7 +17,7 @@ function Login() {
     e.preventDefault();
     const response = await login(username, password);
     if (response.success) {
-      navigate('/admin');
+      navigate('/admin/dashboard');
     } else {
       setError(response.message);
     }

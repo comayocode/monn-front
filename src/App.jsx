@@ -6,6 +6,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Clients from './components/adminPanel/Clients';
 import Products from './components/adminPanel/Products';
 import Users from './components/adminPanel/Users';
+import Dashboard from './components/adminPanel/Dashboard';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='clientes' element={<Clients />} />
           <Route path='productos' element={<Products />} />
           <Route path='usuarios' element={<Users />} />
+          <Route path='dashboard' element={<Dashboard />} />
         </Route>
 
         {/* Ruta para account */}
