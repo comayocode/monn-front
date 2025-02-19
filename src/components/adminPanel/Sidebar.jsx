@@ -26,7 +26,7 @@ function Sidebar({ isSidebarOpen }) {
         <ul className='sidebar__links'>
           {user && user.role === 'admin' && (
             <>
-            <li className='sidebar__link'>
+              <li className='sidebar__link'>
                 <NavLink
                   to='/admin/dashboard'
                   className={({ isActive }) => (isActive ? 'active' : '')}
@@ -84,6 +84,19 @@ function Sidebar({ isSidebarOpen }) {
             <>
               <li className='sidebar__link'>
                 <NavLink
+                  to='/admin/dashboard'
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  <img
+                    className='sidebar__icon'
+                    src='/src/assets/dashboard.svg'
+                    alt='clientes'
+                  />
+                  {isSidebarOpen ? 'Dashboard' : ''}
+                </NavLink>
+              </li>
+              <li className='sidebar__link'>
+                <NavLink
                   to='/admin/clientes'
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
@@ -113,7 +126,9 @@ function Sidebar({ isSidebarOpen }) {
         </ul>
         <button className='logout-button' onClick={handleLogout}>
           <img src='/src/assets/logout.svg' alt='cerrar sesion' />
-          <span className='logout-button__text'>{isSidebarOpen ? 'Cerrar Sesión' : ''}</span>
+          <span className='logout-button__text'>
+            {isSidebarOpen ? 'Cerrar Sesión' : ''}
+          </span>
         </button>
       </div>
     </div>
