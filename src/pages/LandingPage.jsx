@@ -1,7 +1,7 @@
 import './LandingPage.css'; // Estilos específicos de la Landing
-import LandingBanner from '../components/landing/LandingBanner'; // Importamos el componente LandingBanner
-import LandingNavbar from '../components/landing/LandingNavbar';
-import LandingHero from '../components/landing/LandingHero';
+import LandingBanner from '../features/landing/LandingBanner'; // Importamos el componente LandingBanner
+import LandingNavbar from '../features/landing/LandingNavbar';
+import LandingHero from '../features/landing/LandingHero';
 
 
 function LandingPage() {

@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
-import PrivateRoute from './components/PrivateRoute';
-import Clients from './components/adminPanel/Clients';
-import Products from './components/adminPanel/Products';
-import Users from './components/adminPanel/Users';
-import Dashboard from './components/adminPanel/Dashboard';
+import PrivateRoute from './components/common/PrivateRoute';
+import Clients from './features/admin/Clients/Clients';
+import Products from './features/admin/Products/Products';
+import Users from './features/admin/Users/Users';
+import Dashboard from './features/admin/dashboard/Dashboard';
 
 function App() {
   return (

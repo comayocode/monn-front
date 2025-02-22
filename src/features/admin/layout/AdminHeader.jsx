@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { getCurrentUser } from '../../services/authService';
+import { getCurrentUser } from '../../../api/auth';
 import './AdminHeader.css';
 // import { useState } from 'react';
 
-const AdminHeader = ({ onToggleSidebar, isSidebarOpen  }) => {
+const AdminHeader = ({ onToggleSidebar, isSidebarOpen }) => {
   const user = getCurrentUser();
   const [showTooltip, setShowTooltip] = useState(false);
   return (
@@ -14,7 +14,11 @@ const AdminHeader = ({ onToggleSidebar, isSidebarOpen  }) => {
         onMouseLeave={() => setShowTooltip(false)}
         onClick={onToggleSidebar}
       >
-        <img src='/src/assets/sidebar.svg' alt='sidebar icon' className='admin-header__toggle-icon' />
+        <img
+          src='/src/assets/icons/sidebar.svg'
+          alt='sidebar icon'
+          className='admin-header__toggle-icon'
+        />
         {showTooltip && (
           <div className='tooltip'>
             {isSidebarOpen ? 'Cerrar menú' : 'Abrir menú'}

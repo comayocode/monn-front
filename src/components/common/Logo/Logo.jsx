@@ -1,5 +1,5 @@
 import './Logo.css';
-import LogoFull from '/src/assets/logo.svg';  // Logo completo
+import LogoFull from '/src/assets/icons/logo.svg';  // Logo completo
 // import LogoCompact from '/src/assets/logo-compact.svg';  // Logo versión compacta (ícono)
 
 const Logo = ({ isSidebarOpen }) => {

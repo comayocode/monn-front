@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 // import { getCurrentUser } from '../services/authService';
-import Sidebar from '../components/adminPanel/Sidebar';
+import Sidebar from '../features/admin/layout/Sidebar';
 import './AdminPanel.css';
-import AdminHeader from '../components/adminPanel/AdminHeader';
+import AdminHeader from '../features/admin/layout/AdminHeader';
 import { useEffect, useState } from 'react';
 
 function AdminPanel() {

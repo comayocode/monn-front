@@ -36,12 +36,12 @@ function LandingHero() {
       <div className='hero-section'>
         <img
           className='landing-hero__abstract-design'
-          src='/src/assets/hero-abstract-design.svg'
+          src='/src/assets/icons/hero-abstract-design.svg'
           alt='hero-design'
         />
         <img
           className='landing-hero__hero-img'
-          src='/src/assets/hero-img.svg'
+          src='/src/assets/icons/hero-img.svg'
           alt='hero-img inmobiliaria x'
         />
       </div>

@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
-import { getSalesData } from '../../services/salesService';
+import { getSalesData } from '../../../api/sales';
 
 const SalesChart = () => {
   const [salesData, setSalesData] = useState([]);

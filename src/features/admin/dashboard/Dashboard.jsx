@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Dashboard.css';
 import DashboardStats from './DashboardStats';
-import { getDashboardStats } from '../../services/dashboardStatsService';
+import { getDashboardStats } from '../../../api/dashboardStats';
 import SalesChart from "./SalesChart";
 
 const Dashboard = () => {

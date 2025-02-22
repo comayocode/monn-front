@@ -6,7 +6,7 @@ function LandingNavbar() {
     <div className='landing-navbar'>
       <nav className='navbar-container'>
         <div className='navbar-container__logo'>
-          <img src='/src/assets/logo.svg' alt='Logo de Inmobiliaria X' />
+          <img src='/src/assets/icons/logo.svg' alt='Logo de Inmobiliaria X' />
           Inmobiliaria X
         </div>
         <ul className='navbar-container__links'>
@@ -25,7 +25,7 @@ function LandingNavbar() {
           <button className='navbar-container__login-button'>
             Ingresar
             <img
-              src='/src/assets/right.svg'
+              src='/src/assets/icons/right.svg'
               alt='Icono ingresar a inmobiliaria x'
             />
           </button>

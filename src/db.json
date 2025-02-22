@@ -27,7 +27,7 @@
       "id": 1,
       "title": "Total de clientes",
       "number": 543,
-      "icon": "/src/assets/clients.svg",
+      "icon": "/src/assets/icons/clients.svg",
       "trend": "up",
       "trendNumber": "▲ 8.5%",
       "trendDescription": "Desde hace 1 semana"
@@ -36,7 +36,7 @@
       "id": 2,
       "title": "Total de productos",
       "number": 129,
-      "icon": "/src/assets/package.svg",
+      "icon": "/src/assets/icons/package.svg",
       "trend": "up",
       "trendNumber": "▲ 2.1%",
       "trendDescription": "Desde hace 1 semana"
@@ -45,7 +45,7 @@
       "id": 3,
       "title": "Total de ventas",
       "number": 12528,
-      "icon": "/src/assets/shopping-cart.svg",
+      "icon": "/src/assets/icons/shopping-cart.svg",
       "trend": "down",
       "trendNumber": "▼ 1.5%",
       "trendDescription": "Desde hace 1 semana"
@@ -54,7 +54,7 @@
       "id": 4,
       "title": "Total ingresos pendientes",
       "number": 12543123,
-      "icon": "/src/assets/dollar.svg",
+      "icon": "/src/assets/icons/dollar.svg",
       "trend": "up",
       "trendNumber": "▲ 10.5%",
       "trendDescription": "Desde hace 1 semana"
@@ -63,7 +63,7 @@
       "id": 5,
       "title": "Total",
       "number": 5221,
-      "icon": "/src/assets/tag.svg",
+      "icon": "/src/assets/icons/tag.svg",
       "trend": "equal",
       "trendNumber": "= 0%",
       "trendDescription": "Desde hace 1 semana"
