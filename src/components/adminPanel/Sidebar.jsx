@@ -19,110 +19,35 @@ function Sidebar({ isSidebarOpen }) {
     navigate('/login');
   };
 
+  const menuItems = [
+    { title: 'Dashboard', icon: '/src/assets/dashboard.svg', path: '/admin/dashboard', roles: ['admin', 'user'] },
+    { title: 'Clientes', icon: '/src/assets/clients.svg', path: '/admin/clientes', roles: ['admin', 'user'] },
+    { title: 'Productos', icon: '/src/assets/products.svg', path: '/admin/productos', roles: ['admin', 'user'] },
+    { title: 'Usuarios', icon: '/src/assets/users-conf.svg', path: '/admin/usuarios', roles: ['admin'] },
+  ];
+
   return (
     <div className={`sidebar ${isSidebarOpen ? '' : 'sidebar--collapsed'}`}>
       <Logo isSidebarOpen={isSidebarOpen} />
       <div className='sidebar__menu'>
         <ul className='sidebar__links'>
-          {user && user.role === 'admin' && (
-            <>
-              <li className='sidebar__link'>
+        {menuItems.map((item) => (
+            (user && item.roles.includes(user.role)) && (
+              <li key={item.path} className='sidebar__link'>
                 <NavLink
-                  to='/admin/dashboard'
+                  to={item.path}
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   <img
                     className='sidebar__icon'
-                    src='/src/assets/dashboard.svg'
-                    alt='clientes'
+                    src={item.icon || "/placeholder.svg"}
+                    alt={item.title}
                   />
-                  {isSidebarOpen ? 'Dashboard' : ''}
+                  {isSidebarOpen ? item.title : ''}
                 </NavLink>
               </li>
-              <li className='sidebar__link'>
-                <NavLink
-                  to='/admin/clientes'
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  <img
-                    className='sidebar__icon'
-                    src='/src/assets/clients.svg'
-                    alt='clientes'
-                  />
-                  {isSidebarOpen ? 'Clientes' : ''}
-                </NavLink>
-              </li>
-              <li className='sidebar__link'>
-                <NavLink
-                  to='/admin/productos'
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  <img
-                    className='sidebar__icon'
-                    src='/src/assets/products.svg'
-                    alt='productos'
-                  />
-                  {isSidebarOpen ? 'Productos' : ''}
-                </NavLink>
-              </li>
-              <li className='sidebar__link'>
-                <NavLink
-                  to='/admin/usuarios'
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  <img
-                    className='sidebar__icon'
-                    src='/src/assets/users-conf.svg'
-                    alt='usuarios'
-                  />
-                  {isSidebarOpen ? 'Usuarios' : ''}
-                </NavLink>
-              </li>
-            </>
-          )}
-          {user && user.role === 'user' && (
-            <>
-              <li className='sidebar__link'>
-                <NavLink
-                  to='/admin/dashboard'
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  <img
-                    className='sidebar__icon'
-                    src='/src/assets/dashboard.svg'
-                    alt='clientes'
-                  />
-                  {isSidebarOpen ? 'Dashboard' : ''}
-                </NavLink>
-              </li>
-              <li className='sidebar__link'>
-                <NavLink
-                  to='/admin/clientes'
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  <img
-                    className='sidebar__icon'
-                    src='/src/assets/clients.svg'
-                    alt='clientes'
-                  />
-                  {isSidebarOpen ? 'Clientes' : ''}
-                </NavLink>
-              </li>
-              <li className='sidebar__link'>
-                <NavLink
-                  to='/admin/productos'
-                  className={({ isActive }) => (isActive ? 'active' : '')}
-                >
-                  <img
-                    className='sidebar__icon'
-                    src='/src/assets/products.svg'
-                    alt='productos'
-                  />
-                  {isSidebarOpen ? 'Productos' : ''}
-                </NavLink>
-              </li>
-            </>
-          )}
+            )
+          ))}
         </ul>
         <button className='logout-button' onClick={handleLogout}>
           <img src='/src/assets/logout.svg' alt='cerrar sesion' />

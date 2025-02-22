@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/adminPanel/Sidebar';
 import './AdminPanel.css';
 import AdminHeader from '../components/adminPanel/AdminHeader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function AdminPanel() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -14,19 +14,25 @@ function AdminPanel() {
     return savedState !== null ? JSON.parse(savedState) : true;
   });
 
+  useEffect(() => {
+    localStorage.setItem(
+      `sidebarState_${userId}`,
+      JSON.stringify(isSidebarOpen)
+    );
+  }, [isSidebarOpen, userId]);
+
   const toggleSidebar = () => {
-    setSidebarOpen((oldState) => {
-      const newState = !oldState;
-      localStorage.setItem(`sidebarState_${userId}`, JSON.stringify(newState)); // Guardar con ID único
-      return newState;
-    });
+    setSidebarOpen((prevState) => !prevState);
   };
 
   return (
-    <div className="admin-panel">
-      <Sidebar isSidebarOpen={isSidebarOpen}/>
-      <div className="admin-content">
-      <AdminHeader onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+    <div className={`admin-panel ${isSidebarOpen ? '' : 'sidebar-collapsed'}`}>
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <div className='admin-content'>
+        <AdminHeader
+          onToggleSidebar={toggleSidebar}
+          isSidebarOpen={isSidebarOpen}
+        />
         <Outlet />
       </div>
     </div>
