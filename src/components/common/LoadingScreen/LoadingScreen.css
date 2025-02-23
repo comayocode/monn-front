@@ -1,0 +1,34 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-dark);
+  color: var(--text-dark-bg);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Barra de carga */
+.loading-bar {
+  width: 200px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  background: var(--cta);
+  transform: translateX(-100%);
+  animation: progressAnimation 1.5s infinite linear;
+}
+
+@keyframes progressAnimation {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
