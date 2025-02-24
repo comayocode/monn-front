@@ -1,32 +1,35 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../api/auth';
 import './Login.css';
+import useAuth from "@/context/useAuth";
 
 function Login() {
   const [isFocused, setFocusState] = useState({
     username: false,
     password: false,
   });
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const { login } = useAuth();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await login(username, password);
-    if (response.success) {
-      navigate('/admin/dashboard');
+    setError("");
+    const result = await login(username, password);
+    console.log(result);
+    if (result.success) {
+      navigate("/admin/dashboard");
     } else {
-      setError(response.message);
+      setError(result.message);
     }
   };
 
   return (
     <div className='login'>
       <h2 className='login__title'>Iniciar Sesión</h2>
-      <form className='login__form' onSubmit={handleSubmit}>
+      <form className='login__form' onSubmit={handleLogin}>
         <div className='login__input-group'>
           <label
             className={`login__input-label ${

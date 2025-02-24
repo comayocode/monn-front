@@ -2,7 +2,7 @@ import { Suspense, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
-const SuspenseWithDelay = ({ children, delay = 500 }) => {
+const SuspenseWithDelay = ({ children, delay }) => {
   const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {

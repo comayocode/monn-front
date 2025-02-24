@@ -89,6 +89,8 @@
 }
 
 .login__message {
+  width: 200px;
+  height: 60px;
   font: var(--p2-desktop);
   color: var(--para-dark-bg);
   text-align: center;

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { getCurrentUser } from '../../../api/auth';
+import PropTypes from 'prop-types';
 import './AdminHeader.css';
-// import { useState } from 'react';
+import useAuth from '@/context/useAuth';
 
 const AdminHeader = ({ onToggleSidebar, isSidebarOpen }) => {
-  const user = getCurrentUser();
+  const { user } = useAuth();
   const [showTooltip, setShowTooltip] = useState(false);
   return (
     <div className='admin-header'>
@@ -39,6 +39,10 @@ const AdminHeader = ({ onToggleSidebar, isSidebarOpen }) => {
       </div>
     </div>
   );
+};
+AdminHeader.propTypes = {
+  onToggleSidebar: PropTypes.func.isRequired,
+  isSidebarOpen: PropTypes.bool.isRequired,
 };
 
 export default AdminHeader;

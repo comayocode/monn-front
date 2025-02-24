@@ -4,11 +4,14 @@ import './index.css';
 import 'normalize.css';
 import App from './App.jsx';
 import SuspenseWithDelay from './components/common/SuspenseWithDelay/SuspenseWithDelay.jsx';
+import { AuthProvider } from './context/AuthContext';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <SuspenseWithDelay delay={500}>
-      <App />
-    </SuspenseWithDelay>
-  </StrictMode>
+  <AuthProvider>
+    <StrictMode>
+      <SuspenseWithDelay delay={250}>
+        <App />
+      </SuspenseWithDelay>
+    </StrictMode>
+  </AuthProvider>
 );

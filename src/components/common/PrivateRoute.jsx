@@ -1,20 +1,21 @@
 import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import useAuth from '@/context/useAuth';
 
-// Componente para proteger las rutas según los roles del usuario
-const PrivateRoute = ({ element, requiredRoles, ...rest }) => {
-  const user = JSON.parse(localStorage.getItem('user'));
+const PrivateRoute = ({ element, allowedRoles }) => {
+  const { user, isLoading } = useAuth();
 
-  // Si no hay usuario, redirige al login
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
+  if (isLoading) return null;
 
-  // Si el rol del usuario no está en la lista de roles permitidos, redirige
-  if (requiredRoles && !requiredRoles.includes(user.role)) {
-    return <Navigate to="/landing" />;
-  }
+  if (!user) return <Navigate to='/login' />;
 
-  return element;
+  const hasAccess = allowedRoles.includes(user.role);
+  return hasAccess ? element : <Navigate to='/' />;
+};
+
+PrivateRoute.propTypes = {
+  element: PropTypes.element.isRequired,
+  allowedRoles: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default PrivateRoute;

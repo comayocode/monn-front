@@ -1,22 +1,17 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 import Logo from '../../../components/common/Logo/Logo';
-import { useEffect } from 'react';
-import { logout, isAuthenticated } from '../../../api/auth';
+import useAuth from "@/context/useAuth";
+import PropTypes from 'prop-types';
 
 function Sidebar({ isSidebarOpen }) {
+  const { logout } = useAuth();
   const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isAuthenticated()) {
-      navigate('/login');
-    }
-  }, [navigate]);
-
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate("/");
   };
 
   const menuItems = [
@@ -81,5 +76,8 @@ function Sidebar({ isSidebarOpen }) {
     </div>
   );
 }
+Sidebar.propTypes = {
+  isSidebarOpen: PropTypes.bool.isRequired,
+};
 
 export default Sidebar;
