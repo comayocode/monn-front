@@ -4,7 +4,7 @@ import './index.css';
 import 'normalize.css';
 import App from './App.jsx';
 import SuspenseWithDelay from './components/common/SuspenseWithDelay/SuspenseWithDelay.jsx';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContextProvider';
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
