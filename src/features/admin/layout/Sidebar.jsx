@@ -1,7 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Sidebar.css';
 import Logo from '../../../components/common/Logo/Logo';
-import useAuth from "@/context/useAuth";
+import useAuth from '@/context/useAuth';
+import Button from '@/components/ui/Button';
 import PropTypes from 'prop-types';
 
 function Sidebar({ isSidebarOpen }) {
@@ -11,7 +12,7 @@ function Sidebar({ isSidebarOpen }) {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    navigate('/');
   };
 
   const menuItems = [
@@ -66,12 +67,15 @@ function Sidebar({ isSidebarOpen }) {
               )
           )}
         </ul>
-        <button className='logout-button' onClick={handleLogout}>
-          <img src='/src/assets/icons/logout.svg' alt='cerrar sesion' />
-          <span className='logout-button__text'>
-            {isSidebarOpen ? 'Cerrar Sesión' : ''}
-          </span>
-        </button>
+        <Button
+          icon={'/src/assets/icons/logout.svg'}
+          iconPosition='left'
+          variant='danger'
+          size='small'
+          onClick={handleLogout}
+        >
+          {isSidebarOpen ? 'Cerrar Sesión' : ''}
+        </Button>
       </div>
     </div>
   );

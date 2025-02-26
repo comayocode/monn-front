@@ -72,22 +72,6 @@
   color: var(--cta);
 }
 
-.login__button {
-  width: 100%;
-  padding: 16px;
-  font: var(--btn-link-large);
-  color: var(--text-dark-bg);
-  background-color: var(--cta);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.login__button:hover {
-  background-color: #4b48d9;
-}
-
 .login__message {
   width: 200px;
   height: 60px;

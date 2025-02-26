@@ -1,13 +1,14 @@
-import { Link } from 'react-router-dom';
 import './LandingNavbar.css';
-import Logo from '../../components/common/Logo/Logo';
+import Logo from '@/components/common/Logo/Logo';
+import Button from '@/components/ui/Button.jsx';
+import iconRight from '@/assets/icons/right.svg';
 
 function LandingNavbar() {
   return (
     <div className='landing-navbar'>
       <nav className='navbar-container'>
         <div className='navbar-container__logo'>
-          <Logo isSidebarOpen={true}/>
+          <Logo isSidebarOpen={true} />
         </div>
         <ul className='navbar-container__links'>
           {['inicio', 'sobre-nosotros', 'propiedades', 'servicios'].map(
@@ -21,15 +22,15 @@ function LandingNavbar() {
             )
           )}
         </ul>
-        <Link to='/login' className='navbar-container__login'>
-          <button className='navbar-container__login-button'>
-            Ingresar
-            <img
-              src='/src/assets/icons/right.svg'
-              alt='Icono ingresar a inmobiliaria x'
-            />
-          </button>
-        </Link>
+        <Button
+          isLink
+          to='/login'
+          variant='primary'
+          size='normal'
+          icon={iconRight}
+        >
+          Ingresar
+        </Button>
       </nav>
     </div>
   );

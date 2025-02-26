@@ -1,0 +1,120 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font: var(--btn-link-medium);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* Tamaños */
+.btn--small {
+  padding: 12px 24px;
+  font: var(--btn-link-small);
+}
+
+.btn--medium {
+  padding: 14px 32px;
+  font: var(--btn-link-medium);
+}
+
+.btn--normal {
+  padding: 16px 32px;
+  font: var(--btn-link-normal);
+}
+
+.btn--large {
+  padding: 20px 32px;
+  font: var(--btn-link-large);
+}
+
+/* Variantes */
+.btn--primary {
+  background-color: var(--cta);
+  color: var(--text-dark-bg);
+}
+
+.btn--primary:hover {
+  background-color: #4b48d9;
+}
+
+.btn--secondary {
+  background-color: var(--bg-light);
+  color: var(--cta);
+  border: 1px solid var(--cta);
+}
+
+.btn--secondary:hover {
+  background-color: var(--bg-hover);
+}
+
+.btn--outline {
+  background-color: transparent;
+  border: 2px solid var(--cta);
+  color: var(--cta);
+}
+
+.btn--outline:hover {
+  background-color: var(--cta);
+  color: var(--text-dark-bg);
+}
+
+.btn--danger {
+  background-color: #e74c3c;
+  color: var(--text-dark-bg);
+}
+
+.btn--danger:hover {
+  background-color: #c0392b;
+}
+
+/* Estado Active (Clic) */
+.btn:active,
+.btn--primary:active{
+  background-color: var(--btn-primary-bg-clicked);
+  transform: scale(0.98);
+}
+
+.btn--secondary:active {
+  background-color: var(--btn-secondary-bg-clicked);
+  transform: scale(0.98);
+}
+
+/* Estado Disabled */
+.btn--disabled,
+.btn--primary.btn--disabled {
+  background-color: var(--btn-primary-bg-disabled);
+  color: var(--btn-primary-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--secondary.btn--disabled {
+  background-color: var(--btn-secondary-bg-disabled);
+  color: var(--btn-secondary-text-disabled);
+  border: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Iconos */
+.btn img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.4s ease;
+}
+
+.btn:hover img {
+  transform: translateX(4px);
+}
+

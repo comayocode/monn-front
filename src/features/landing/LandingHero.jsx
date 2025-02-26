@@ -1,4 +1,5 @@
 import './LandingHero.css';
+import Button from '@/components/ui/Button.jsx';
 
 function LandingHero() {
   return (
@@ -15,8 +16,12 @@ function LandingHero() {
           </p>
         </div>
         <div className='hero-info__cta'>
-          <button className='hero-info__cta-btn--secondary'>Leer más</button>
-          <button className='hero-info__cta-btn--primary'>Busca propiedades</button>
+          <Button variant='secondary' size='large'>
+            Leer más
+          </Button>
+          <Button variant='primary' size='large'>
+            Busca propiedades
+          </Button>
         </div>
         <div className='hero-info__cards'>
           <div className='hero-info__card'>

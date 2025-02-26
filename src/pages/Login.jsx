@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import useAuth from "@/context/useAuth";
+import useAuth from '@/context/useAuth';
+import Button from '@/components/ui/Button';
 
 function Login() {
   const [isFocused, setFocusState] = useState({
@@ -9,18 +10,18 @@ function Login() {
     password: false,
   });
   const { login } = useAuth();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
     const result = await login(username, password);
     console.log(result);
     if (result.success) {
-      navigate("/admin/dashboard");
+      navigate('/admin/dashboard');
     } else {
       setError(result.message);
     }
@@ -76,9 +77,9 @@ function Login() {
             required
           />
         </div>
-        <button className='login__button' type='submit'>
+        <Button type='submit' variant='primary' size='normal' fullWidth>
           Iniciar Sesión
-        </button>
+        </Button>
       </form>
       <div className='login__message'>
         {error && <p className='login__error'>{error}</p>}

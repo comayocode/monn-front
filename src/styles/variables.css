@@ -12,6 +12,11 @@
   --menu-links-hover-dark: #2F2F2F;
   --admin-bg-dark: #1B1A1F;
   --admin-calc-height: 81px;
+  --btn-primary-bg-disabled: #F4F3FE;
+  --btn-primary-text-disabled: #C5C0DB;
+  --btn-secondary-bg-disabled: #F4F3FE;
+  --btn-secondary-text-disabled: #C5C0DB;
+  --btn-primary-bg-clicked: #23209F;
 
   /* Tipografía global */
   --font-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
