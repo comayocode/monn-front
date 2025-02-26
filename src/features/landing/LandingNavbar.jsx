@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import './LandingNavbar.css';
+import Logo from '../../components/common/Logo/Logo';
 
 function LandingNavbar() {
   return (
     <div className='landing-navbar'>
       <nav className='navbar-container'>
         <div className='navbar-container__logo'>
-          <img src='/src/assets/icons/logo.svg' alt='Logo de Inmobiliaria X' />
-          Inmobiliaria X
+          <Logo isSidebarOpen={true}/>
         </div>
         <ul className='navbar-container__links'>
           {['inicio', 'sobre-nosotros', 'propiedades', 'servicios'].map(

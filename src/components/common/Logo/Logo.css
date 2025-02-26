@@ -1,9 +1,8 @@
 .logo {
   display: flex;
-  width: 204px;
+  width: 225px;
   align-items: center;
-  font-size: var(--h4-desktop-size);
-  font-weight: var(--p1-desktop-weight);
+  font: var(--h4-desktop);
   color: var(--text-dark-bg);
 }
 

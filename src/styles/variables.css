@@ -1,0 +1,51 @@
+:root {
+  /* Colores */
+  --bg-dark: #191919;
+  --bg-light: #FFFFFF;
+  --cta: #605DEC;
+  --text-dark-bg: #FFFFFF;
+  --para-dark-bg: #999999;
+  --text-light-bg: #262626;
+  --secondary-bg-admin-panel: #262626;
+  --para-light-bg: #999999;
+  --bg-hover: #F6F5FF;
+  --menu-links-hover-dark: #2F2F2F;
+  --admin-bg-dark: #1B1A1F;
+  --admin-calc-height: 81px;
+
+  /* Tipografía global */
+  --font-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Tipografía - Desktop */
+  --h1-desktop: bold 56px/100% var(--font-primary);
+  --h2-desktop: bold 48px/120% var(--font-primary);
+  --h3-desktop: bold 32px/120% var(--font-primary);
+  --h4-desktop: bold 24px/100% var(--font-primary);
+  --h5-desktop: bold 18px/120% var(--font-primary);
+  --p1-desktop: normal 18px/140% var(--font-primary);
+  --p2-desktop: normal 16px/140% var(--font-primary);
+
+  /* Tipografía - Tablet */
+  --h1-tablet: bold 48px/110% var(--font-primary);
+  --h2-tablet: bold 32px/120% var(--font-primary);
+  --h3-tablet: bold 24px/120% var(--font-primary);
+  --h4-tablet: bold 18px/120% var(--font-primary);
+  --h5-tablet: bold 16px/120% var(--font-primary);
+  --p1-tablet: normal 16px/130% var(--font-primary);
+  --p2-tablet: normal 14px/130% var(--font-primary);
+
+  /* Tipografía - Mobile */
+  --h1-mobile: bold 24px/110% var(--font-primary);
+  --h2-mobile: bold 20px/120% var(--font-primary);
+  --h3-mobile: bold 18px/120% var(--font-primary);
+  --h4-mobile: bold 16px/120% var(--font-primary);
+  --h5-mobile: bold 14px/120% var(--font-primary);
+  --p1-mobile: normal 16px/130% var(--font-primary);
+  --p2-mobile: normal 14px/130% var(--font-primary);
+
+  /* Botones - Links */
+  --btn-link-large: 400 20px/24px var(--font-primary);
+  --btn-link-normal: 400 20px/24px var(--font-primary);
+  --btn-link-medium: 400 16px/20px var(--font-primary);
+  --btn-link-small: 400 16px/16px var(--font-primary);
+}
