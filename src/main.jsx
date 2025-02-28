@@ -5,12 +5,15 @@ import 'normalize.css';
 import App from './App.jsx';
 import SuspenseWithDelay from './components/common/SuspenseWithDelay/SuspenseWithDelay.jsx';
 import { AuthProvider } from './context/AuthContextProvider';
+import { ThemeProvider } from './context/ThemeContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <StrictMode>
       <SuspenseWithDelay delay={250}>
-        <App />
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
       </SuspenseWithDelay>
     </StrictMode>
   </AuthProvider>

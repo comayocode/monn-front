@@ -1,4 +1,4 @@
-@import url("./variables.css");
+@import url("./variables.module.css");
 
 body {
   font-family: var(--font-primary);

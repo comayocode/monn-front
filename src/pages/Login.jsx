@@ -3,12 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import useAuth from '@/context/useAuth';
 import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
 
 function Login() {
-  const [isFocused, setFocusState] = useState({
-    username: false,
-    password: false,
-  });
   const { login } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -29,56 +26,24 @@ function Login() {
 
   return (
     <div className='login'>
-      <h2 className='login__title'>Iniciar Sesión</h2>
       <form className='login__form' onSubmit={handleLogin}>
-        <div className='login__input-group'>
-          <label
-            className={`login__input-label ${
-              isFocused.username ? 'focused' : ''
-            }`}
-          >
-            Usuario
-          </label>
-          <input
-            className='login__input'
-            type='text'
-            placeholder='Escribe tu nombre de usuario'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onFocus={() =>
-              setFocusState((prev) => ({ ...prev, username: true }))
-            }
-            onBlur={() =>
-              setFocusState((prev) => ({ ...prev, username: false }))
-            }
-            required
-          />
-        </div>
-        <div className='login__input-group'>
-          <label
-            className={`login__input-label ${
-              isFocused.password ? 'focused' : ''
-            }`}
-          >
-            Contraseña
-          </label>
-          <input
-            className='login__input'
-            type='password'
-            placeholder='Escribe tu contraseña'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onFocus={() =>
-              setFocusState((prev) => ({ ...prev, password: true }))
-            }
-            onBlur={() =>
-              setFocusState((prev) => ({ ...prev, password: false }))
-            }
-            required
-          />
-        </div>
+        <h2 className='login__title'>Iniciar Sesión</h2>
+        <p className='login__description'>Ingresa tus credenciales para continuar.</p>
+        <Input
+          label='Usuario'
+          placeholder='mi.usuario@correo.com'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <Input
+          label='Contraseña'
+          placeholder='••••••••••••'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          variant='password'
+        />
         <Button type='submit' variant='primary' size='normal' fullWidth>
-          Iniciar Sesión
+          Ingresar
         </Button>
       </form>
       <div className='login__message'>

@@ -1,0 +1,91 @@
+/* Estilos generales del input */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--field-description);
+  margin-bottom: 4px;
+}
+
+.input {
+  padding: 15px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--field-stroke-hover);
+  background-color: var(--field-bg);
+  color: var(--field-text);
+  font: var(--field-font);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input:hover {
+  border-color: var(--field-stroke-hover);
+}
+
+.input:focus {
+  border-color: var(--field-stroke-focus);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Estados de validación y error */
+.input.validation {
+  background-color: var(--field-bg-validation);
+  border-color: var(--field-stroke-validation);
+}
+
+.input.error {
+  background-color: var(--field-bg-error);
+  border-color: var(--field-stroke-error);
+}
+
+.description {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--field-description);
+  margin-top: 4px;
+}
+
+/* Input password */
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eyeButton {
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.eyeButton img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.eyeButton:hover img {
+  opacity: 1;
+}
+
+/* Invertir el color en el modo oscuro */
+.eyeIconDark {
+  filter: invert(1);
+}

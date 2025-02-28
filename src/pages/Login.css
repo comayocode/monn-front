@@ -11,16 +11,26 @@
   font: var(--h3-desktop);
   color: var(--text-dark-bg);
   text-align: center;
-  margin-bottom: 24px;
+  margin: auto;
+}
+
+.login__description {
+  font: var(--p2-desktop);
+  color: var(--para-dark-bg);
+  text-align: center;
+  margin-bottom: 35px;
 }
 
 .login__form {
   width: 100%;
-  max-width: 400px;
-  background-color: #1e1e1e;
-  padding: 32px;
+  max-width: 320px;
+  padding: 32px 32px 50px 32px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #262626;
+}
+
+.login__form input[placeholder="••••••••••••"] {
+  margin-bottom: 25px;
 }
 
 .login__input-group {

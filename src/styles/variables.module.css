@@ -18,6 +18,23 @@
   --btn-secondary-text-disabled: #C5C0DB;
   --btn-primary-bg-clicked: #23209F;
 
+  --text-disabled: #C5C0DB;
+  --text-validation: #FFB82E;
+  --text-error: #F93232;
+  --text-success: #439F6E;
+
+  --field-bg: #F7F7FD;
+  --field-text: #212121;
+  --field-description: #AAAAAA;
+  --field-stroke-hover: #E8E6F8;
+  --field-stroke-focus: #605DEC;
+
+  --field-bg-validation: #FFFBF4;
+  --field-stroke-validation: #FFEAC1;
+
+  /* --field-bg-error: #FFF5F5;
+  --field-stroke-error: #FFD8D8; */
+
   /* Tipografía global */
   --font-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
@@ -53,4 +70,39 @@
   --btn-link-normal: 400 20px/24px var(--font-primary);
   --btn-link-medium: 400 16px/20px var(--font-primary);
   --btn-link-small: 400 16px/16px var(--font-primary);
+
+  /* Inputs */
+  --field-font: 400 16px/24px var(--font-primary);
+}
+
+.input-light {
+  --text-disabled: #C5C0DB;
+  --text-validation: #FFB82E;
+  --text-error: #F93232;
+  --text-success: #439F6E;
+  --field-bg: #F7F7FD;
+  --field-text: #212121;
+  --field-description: #AAAAAA;
+  --field-stroke-hover: #E8E6F8;
+  --field-stroke-focus: #605DEC;
+  --field-bg-validation: #FFFBF4;
+  --field-stroke-validation: #FFEAC1;
+  --field-bg-error: #FFF5F5;
+  --field-stroke-error: #FFD8D8;
+}
+
+.input-dark {
+  --text-disabled: #6B678A;
+  --text-validation: #FFB82E;
+  --text-error: #F93232;
+  --text-success: #439F6E;
+  --field-bg: #2C2C34;
+  --field-text: #E0E0E0;
+  --field-description: #888888;
+  --field-stroke-hover: #3A3A4A;
+  --field-stroke-focus: #605DEC;
+  --field-bg-validation: #4A3A2C;
+  --field-stroke-validation: #FFEAC1;
+  --field-bg-error: #4A2C2C;
+  --field-stroke-error: #FFD8D8;
 }

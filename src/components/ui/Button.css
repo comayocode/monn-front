@@ -86,7 +86,8 @@
 }
 
 .btn--secondary:active {
-  background-color: var(--btn-secondary-bg-clicked);
+  background-color: var(--bg-hover);
+  border: 1px solid var(--bg-hover);
   transform: scale(0.98);
 }
 
