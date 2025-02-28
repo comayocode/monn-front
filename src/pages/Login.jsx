@@ -4,41 +4,42 @@ import './Login.css';
 import useAuth from '@/context/useAuth';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import useToast from '@/context/useToast';
 
 function Login() {
   const { login } = useAuth();
+  const { addToast } = useToast();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [prevValues, setPrevValues] = useState({ username: '', password: '' }); // Guardar los valores antes de hacer login
+  const [error, setError] = useState(false);
   const [emptyFields, setEmptyFields] = useState({
     username: false,
     password: false,
-  }); // Rastrear qué campos están vacíos en el último intento
+  });
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError('');
+    setError(false); // Reiniciamos error general
 
     const newEmptyFields = {
       username: !username.trim(),
       password: !password.trim(),
-    }; // Detectar qué campos están vacíos
+    };
     setEmptyFields(newEmptyFields);
 
     if (newEmptyFields.username || newEmptyFields.password) {
-      setError('Por favor, completa todos los campos.');
+      addToast('Por favor, completa todos los campos.', 'error');
       return;
     }
 
-    setPrevValues({ username, password }); // Guardamos los valores ingresados antes del intento
-
     const result = await login(username, password);
     if (result.success) {
+      addToast('Inicio de sesión exitoso.', 'success');
       navigate('/admin/dashboard');
     } else {
-      setError(result.message);
+      setError(true); // Marcar error en los inputs
+      addToast('Credenciales inválidas.', 'error');
     }
   };
 
@@ -53,30 +54,29 @@ function Login() {
           label='Usuario'
           placeholder='mi.usuario@correo.com'
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          error={
-            (!!error && username === prevValues.username) ||
-            emptyFields.username
-          }
+          onChange={(e) => {
+            setUsername(e.target.value);
+            if (error) setError(false); // Quita el borde rojo si hay cambios
+            if (emptyFields.username) setEmptyFields({ ...emptyFields, username: false });
+          }}
+          error={error || emptyFields.username}
         />
         <Input
           label='Contraseña'
           placeholder='••••••••••••'
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          error={
-            (!!error && password === prevValues.password) ||
-            emptyFields.password
-          }
+          onChange={(e) => {
+            setPassword(e.target.value);
+            if (error) setError(false);
+            if (emptyFields.password) setEmptyFields({ ...emptyFields, password: false });
+          }}
+          error={error || emptyFields.password}
           variant='password'
         />
         <Button type='submit' variant='primary' size='normal' fullWidth>
           Ingresar
         </Button>
       </form>
-      <div className='login__message'>
-        {error && <p className='login__error'>{error}</p>}
-      </div>
     </div>
   );
 }
