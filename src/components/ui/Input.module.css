@@ -37,13 +37,12 @@
 }
 
 /* Estados de validación y error */
-.input.validation {
+.input--validation {
   background-color: var(--field-bg-validation);
   border-color: var(--field-stroke-validation);
 }
 
-.input.error {
-  background-color: var(--field-bg-error);
+.input--error {
   border-color: var(--field-stroke-error);
 }
 

@@ -103,6 +103,6 @@
   --field-stroke-focus: #605DEC;
   --field-bg-validation: #4A3A2C;
   --field-stroke-validation: #FFEAC1;
-  --field-bg-error: #4A2C2C;
-  --field-stroke-error: #FFD8D8;
+  --field-bg-error: #ebd6d6;
+  --field-stroke-error: #b35a5a;
 }
