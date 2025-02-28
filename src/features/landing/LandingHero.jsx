@@ -1,5 +1,5 @@
 import './LandingHero.css';
-import Button from '@/components/ui/Button.jsx';
+import Button from '@/components/ui/Button/Button';
 
 function LandingHero() {
   return (

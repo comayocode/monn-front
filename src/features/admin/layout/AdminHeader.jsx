@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AdminHeader.css';
-import useAuth from '@/context/useAuth';
+import useAuth from '@/hooks/useAuth';
 
 const AdminHeader = ({ onToggleSidebar, isSidebarOpen }) => {
   const { user } = useAuth();

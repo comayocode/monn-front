@@ -1,8 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Sidebar.css';
-import Logo from '../../../components/common/Logo/Logo';
-import useAuth from '@/context/useAuth';
-import Button from '@/components/ui/Button';
+import Logo from '@/components/common/Logo/Logo';
+import useAuth from '@/hooks/useAuth';
+import Button from '@/components/ui/Button/Button';
 import PropTypes from 'prop-types';
 
 function Sidebar({ isSidebarOpen }) {

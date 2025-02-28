@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import PrivateRoute from '../components/common/PrivateRoute';
 import { ROLES } from '@/config/rolesConfig';
-import useAuth from '@/context/useAuth';
+import useAuth from '@/hooks/useAuth';
 import {
   AdminPanel,
   LandingPage,

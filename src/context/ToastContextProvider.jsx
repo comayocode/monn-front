@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import ToastContainer from '../components/ui/ToastContainer';
+import ToastContainer from '@/components/ui/Toast/ToastContainer';
 import { ToastContext } from './ToastContext';
 
 // const ToastContext = createContext();

@@ -1,6 +1,6 @@
 import './LandingNavbar.css';
 import Logo from '@/components/common/Logo/Logo';
-import Button from '@/components/ui/Button.jsx';
+import Button from '@/components/ui/Button/Button';
 import iconRight from '@/assets/icons/right.svg';
 
 function LandingNavbar() {

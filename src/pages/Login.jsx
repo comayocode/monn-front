@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import useAuth from '@/context/useAuth';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import useToast from '@/context/useToast';
+import useAuth from '@/hooks/useAuth';
+import useToast from '@/hooks/useToast';
+import Button from '@/components/ui/Button/Button';
+import Input from '@/components/ui/Input/Input';
 
 function Login() {
   const { login } = useAuth();
