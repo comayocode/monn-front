@@ -46,6 +46,7 @@
   --h5-desktop: bold 18px/120% var(--font-primary);
   --p1-desktop: normal 18px/140% var(--font-primary);
   --p2-desktop: normal 16px/140% var(--font-primary);
+  --body-2-desktop: normal 16px/140% var(--font-primary);
 
   /* Tipografía - Tablet */
   --h1-tablet: bold 48px/110% var(--font-primary);

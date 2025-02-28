@@ -35,11 +35,11 @@ function Login() {
 
     const result = await login(username, password);
     if (result.success) {
-      addToast('Inicio de sesión exitoso.', 'success');
+      addToast(`Ingreso exitoso ¡Bienvenid@ ${username}!`, 'success');
       navigate('/admin/dashboard');
     } else {
       setError(true); // Marcar error en los inputs
-      addToast('Credenciales inválidas.', 'error');
+      addToast('Credenciales inválidas, intenta nuevamente.', 'error');
     }
   };
 
