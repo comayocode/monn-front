@@ -6,6 +6,7 @@ import { useTheme } from '@/context/ThemeContext';
 
 import eyeOpenIcon from '@/assets/icons/eye-on.svg';
 import eyeClosedIcon from '@/assets/icons/eye-off.svg';
+import searchIcon from '@/assets/icons/search.svg';
 
 const Input = ({
   label,
@@ -34,35 +35,31 @@ const Input = ({
     <div
       className={`${styles.inputWrapper} ${themeClass} ${
         variant === 'password' ? styles.passwordWrapper : ''
-      }`}
+      } ${variant === 'search' ? styles.searchWrapper : ''}`}
     >
       {label && <label className={styles.label}>{label}</label>}
 
-      <input
-        type={
-          variant === 'password' && !isPasswordVisible ? 'password' : 'text'
-        }
-        className={`${styles.input} ${
-          validation ? styles['input--validation'] : ''
-        } ${error ? styles['input--error'] : ''}`}
-        placeholder={placeholder}
-        {...props}
-      />
+      <div className={styles.inputContainer}>
+        {variant === 'search' && (
+          <img src={searchIcon} alt="Search" className={styles.searchIcon} />
+        )}
 
-      {variant === 'password' && (
-        <button
-          type='button'
-          className={styles.eyeButton}
-          onClick={togglePasswordVisibility}
-        >
-          {/* <img src={isPasswordVisible ? eyeOpenIcon : eyeClosedIcon} alt="Toggle password visibility" /> */}
-          <img
-            className={theme === 'dark' ? styles.eyeIconDark : ''}
-            src={isPasswordVisible ? eyeOpenIcon : eyeClosedIcon}
-            alt='Toggle password visibility'
-          />
-        </button>
-      )}
+        <input
+          type={variant === 'password' && !isPasswordVisible ? 'password' : 'text'}
+          className={`${styles.input} 
+          ${variant === 'search' ? styles.searchInput : ''} 
+          ${validation ? styles['input--validation'] : ''} 
+          ${error ? styles['input--error'] : ''}`}
+          placeholder={placeholder}
+          {...props}
+        />
+
+        {variant === 'password' && (
+          <button type="button" className={styles.eyeButton} onClick={togglePasswordVisibility}>
+            <img className={theme === 'dark' ? styles.eyeIconDark : ''} src={isPasswordVisible ? eyeOpenIcon : eyeClosedIcon} alt="Toggle password visibility" />
+          </button>
+        )}
+      </div>
 
       {description && <span className={styles.description}>{description}</span>}
     </div>
@@ -75,7 +72,7 @@ Input.propTypes = {
   description: PropTypes.string,
   validation: PropTypes.bool,
   error: PropTypes.bool,
-  variant: PropTypes.oneOf(['text', 'password']),
+  variant: PropTypes.oneOf(['text', 'password', 'search']),
 };
 
 export default Input;

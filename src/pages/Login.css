@@ -29,7 +29,12 @@
   border: 1px solid #262626;
 }
 
-.login__form input[placeholder="••••••••••••"] {
+/* .login__form input[placeholder="••••••••••••"] {
+  margin-bottom: 25px;
+} */
+
+/* TODO: Mejorar: No compatible con firefox */
+.login__form div:has(input[placeholder="••••••••••••"]) {
   margin-bottom: 25px;
 }
 
