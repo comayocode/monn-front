@@ -25,5 +25,5 @@
 .clients__content,
 .products__content,
 .users__content {
-  height: calc(100vh - 297px);
+  min-height: calc(100vh - 297px);
 }

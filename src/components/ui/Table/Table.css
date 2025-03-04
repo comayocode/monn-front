@@ -1,0 +1,142 @@
+/* Bloque principal */
+.table {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #212121;
+}
+
+/* Contenido de la tabla */
+.table__content {
+  width: 100%;
+  height: 80%;
+  border-collapse: collapse;
+  border-radius: 4px;
+  overflow: hidden;
+  border-bottom: 1px solid #8A8894;
+  border: 1px solid #8A8894;
+}
+
+/* Encabezado */
+.table__head {
+  background-color: #1D1D1D;
+}
+
+.table__header {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.table__header:last-child {
+  text-align: center;
+}
+
+/* Filas y celdas */
+.table__row {
+  border-bottom: 0.5px solid #97979730;
+}
+
+.table__row:last-child {
+  border-bottom: none;
+}
+
+.table__cell {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Acciones */
+.table__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table__button {
+  width: 40px;
+  height: 32px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease-in-out;
+}
+
+.table__button-img {
+  width: 18px;
+}
+
+.table__button--edit {
+  background-color: var(--cta);
+  border-radius: 8px 0 0 8px;
+}
+
+.table__button--delete {
+  background-color: var(--btn-danger);
+  border-radius: 0 8px 8px 0;
+}
+
+.table__button--edit:hover {
+  background-color: var(--cta-soft);
+  cursor: pointer;
+}
+
+.table__button--delete:hover {
+  background-color: var(--btn-danger-hover);
+  cursor: pointer;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.pagination__button {
+  color: #FFFFFF;
+  padding: 6px 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.pagination__button--prev,
+.pagination__button--next {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__button--active {
+  background-color: #605DEC;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.pagination__button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Imágenes de perfil */
+.table__profile-pic {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  border-radius: 8px;
+  object-fit: cover;
+}

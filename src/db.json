@@ -2,24 +2,120 @@
   "users": [
     {
       "id": 1,
+      "pic": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
       "username": "Armando Paredes",
+      "email": "armando.paredes@email.com",
       "password": "admin123",
-      "role": "admin",
-      "pic": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
+      "2fa": true,
+      "role": "admin"
     },
     {
       "id": 2,
+      "pic": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400",
       "username": "Cristian Paredes",
+      "email": "cristian.paredes@email.com",
       "password": "user123",
-      "role": "user",
-      "pic": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400"
+      "2fa": true,
+      "role": "user"
     },
     {
       "id": 3,
+      "pic": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400",
       "username": "account",
+      "email": "account@email.com",
       "password": "account123",
-      "role": "account",
-      "pic": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400"
+      "2fa": false,
+      "role": "account"
+    },
+    {
+      "id": 4,
+      "pic": "https://randomuser.me/api/portraits/men/1.jpg",
+      "username": "Carlos Pérez",
+      "email": "carlos.perez@email.com",
+      "password": "securePass1",
+      "2fa": true,
+      "role": "admin"
+    },
+    {
+      "id": 5,
+      "pic": "https://randomuser.me/api/portraits/women/2.jpg",
+      "username": "Ana Gómez",
+      "email": "ana.gomez@email.com",
+      "password": "securePass2",
+      "2fa": false,
+      "role": "user"
+    },
+    {
+      "id": 6,
+      "pic": "https://randomuser.me/api/portraits/men/3.jpg",
+      "username": "Luis Rodríguez",
+      "email": "luis.rodriguez@email.com",
+      "password": "securePass3",
+      "2fa": true,
+      "role": "admin"
+    },
+    {
+      "id": 7,
+      "pic": "https://randomuser.me/api/portraits/women/4.jpg",
+      "username": "María López",
+      "email": "maria.lopez@email.com",
+      "password": "securePass4",
+      "2fa": false,
+      "role": "user"
+    },
+    {
+      "id": 8,
+      "pic": "https://randomuser.me/api/portraits/men/5.jpg",
+      "username": "Pedro Sánchez",
+      "email": "pedro.sanchez@email.com",
+      "password": "securePass5",
+      "2fa": true,
+      "role": "editor"
+    },
+    {
+      "id": 9,
+      "pic": "https://randomuser.me/api/portraits/women/6.jpg",
+      "username": "Elena Martínez",
+      "email": "elena.martinez@email.com",
+      "password": "securePass6",
+      "2fa": false,
+      "role": "user"
+    },
+    {
+      "id": 10,
+      "pic": "https://randomuser.me/api/portraits/men/7.jpg",
+      "username": "Jorge Herrera",
+      "email": "jorge.herrera@email.com",
+      "password": "securePass7",
+      "2fa": true,
+      "role": "editor"
+    },
+    {
+      "id": 11,
+      "pic": "https://randomuser.me/api/portraits/women/8.jpg",
+      "username": "Isabel Núñez",
+      "email": "isabel.nunez@email.com",
+      "password": "securePass8",
+      "2fa": false,
+      "role": "user"
+    },
+    {
+      "id": 12,
+      "pic": "https://randomuser.me/api/portraits/men/9.jpg",
+      "username": "Raúl Fernández",
+      "email": "raul.fernandez@email.com",
+      "password": "securePass9",
+      "2fa": true,
+      "role": "admin"
+    },
+    {
+      "id": 13,
+      "pic": "https://randomuser.me/api/portraits/women/10.jpg",
+      "username": "Laura Castillo",
+      "email": "laura.castillo@email.com",
+      "password": "securePass10",
+      "2fa": false,
+      "role": "user"
     }
   ],
   "dashboardStats": [

@@ -3,6 +3,7 @@
   --bg-dark: #191919;
   --bg-light: #FFFFFF;
   --cta: #605DEC;
+  --cta-soft: #5452db;
   --text-dark-bg: #FFFFFF;
   --para-dark-bg: #999999;
   --text-light-bg: #262626;
@@ -17,6 +18,8 @@
   --btn-secondary-bg-disabled: #F4F3FE;
   --btn-secondary-text-disabled: #C5C0DB;
   --btn-primary-bg-clicked: #23209F;
+  --btn-danger: #e74c3c;
+  --btn-danger-hover:#c0392b;
 
   --text-disabled: #C5C0DB;
   --text-validation: #FFB82E;
