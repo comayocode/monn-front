@@ -15,21 +15,18 @@ const Input = ({
   validation,
   error,
   variant = 'text',
+  isPasswordVisible, // Se recibe desde Form.jsx
+  onTogglePassword, // Se recibe desde Form.jsx
   ...props
 }) => {
   const { theme } = useTheme();
   const [themeClass, setThemeClass] = useState(variables['input-light']);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   useEffect(() => {
     setThemeClass(
       theme === 'dark' ? variables['input-dark'] : variables['input-light']
     );
   }, [theme]);
-
-  const togglePasswordVisibility = () => {
-    setIsPasswordVisible((prev) => !prev);
-  };
 
   return (
     <div
@@ -45,17 +42,18 @@ const Input = ({
         )}
 
         <input
-          type={variant === 'password' && !isPasswordVisible ? 'password' : 'text'}
+          type={variant === 'password' && !isPasswordVisible ? 'password' : 'text'} // Si se quita afecta al login únicamente
           className={`${styles.input} 
           ${variant === 'search' ? styles.searchInput : ''} 
           ${validation ? styles['input--validation'] : ''} 
           ${error ? styles['input--error'] : ''}`}
           placeholder={placeholder}
           {...props}
+          autoComplete='off'
         />
 
         {variant === 'password' && (
-          <button type="button" className={styles.eyeButton} onClick={togglePasswordVisibility}>
+          <button type="button" className={styles.eyeButton} onClick={onTogglePassword}>
             <img className={theme === 'dark' ? styles.eyeIconDark : ''} src={isPasswordVisible ? eyeOpenIcon : eyeClosedIcon} alt="Toggle password visibility" />
           </button>
         )}
@@ -73,6 +71,8 @@ Input.propTypes = {
   validation: PropTypes.bool,
   error: PropTypes.bool,
   variant: PropTypes.oneOf(['text', 'password', 'search']),
+  isPasswordVisible: PropTypes.bool,
+  onTogglePassword: PropTypes.func,
 };
 
 export default Input;

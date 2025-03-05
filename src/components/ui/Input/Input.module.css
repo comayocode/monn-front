@@ -34,6 +34,15 @@
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+input:-webkit-autofill {
+  background-color: var(--field-bg) !important;
+  -webkit-box-shadow: 0 0 0 1000px var(--field-bg) inset !important;
+  -webkit-text-fill-color: var(--field-text) !important;
+  color: var(--field-text) !important;
+  caret-color: var(--field-text) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* Hover y Focus */
 .input:hover {
   border-color: var(--field-stroke-hover);
