@@ -1,15 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Form.css';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import useToast from '@/hooks/useToast';
 
-const Form = ({ fields, onSubmit, submitText }) => {
+const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
   const { addToast } = useToast();
   const [emptyFields, setEmptyFields] = useState(
     Object.fromEntries(fields.map((field) => [field.name, false]))
   );
+
+  // Cargar datos cuando initialValues cambie
+  useEffect(() => {
+    if (initialValues) {
+      setFormData(initialValues);
+    }
+  }, [initialValues]);
 
   const [formData, setFormData] = useState(
     fields.reduce(
@@ -90,6 +97,7 @@ const Form = ({ fields, onSubmit, submitText }) => {
 };
 
 Form.propTypes = {
+  initialValues: PropTypes.object,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

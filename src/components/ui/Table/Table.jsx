@@ -5,7 +5,7 @@ import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import Pagination from './Pagination';
 
-const Table = ({ data, columns, rowsPerPage = 10 }) => {
+const Table = ({ data, columns, rowsPerPage = 10, onEdit, onDelete }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / rowsPerPage);
 
@@ -24,7 +24,13 @@ const Table = ({ data, columns, rowsPerPage = 10 }) => {
             {data
               .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
               .map((row) => (
-                <TableRow key={row.id} row={row} columns={columns} />
+                <TableRow
+                  key={row.id}
+                  row={row}
+                  columns={columns}
+                  onEdit={onEdit}
+                  onDelete={onDelete}
+                />
               ))}
           </tbody>
         </table>
@@ -44,6 +50,8 @@ Table.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
   rowsPerPage: PropTypes.number,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Table;

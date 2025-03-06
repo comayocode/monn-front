@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import TableActions from './TableActions';
 
-const TableRow = ({ row, columns }) => {
+const TableRow = ({ row, columns, onEdit, onDelete }) => {
   return (
     <tr className='table__row'>
       {columns.map((col) => (
@@ -19,7 +19,7 @@ const TableRow = ({ row, columns }) => {
               '-'
             )
           ) : col.key === 'actions' ? (
-            <TableActions />
+            <TableActions onEdit={() => onEdit(row)} onDelete={() => onDelete(row)} />
           ) : (
             row[col.key]
           )}
@@ -32,6 +32,8 @@ const TableRow = ({ row, columns }) => {
 TableRow.propTypes = {
   row: PropTypes.object.isRequired,
   columns: PropTypes.array.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default TableRow;

@@ -1,0 +1,84 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1D1D1D;
+  color: #FFF;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+  border-top: 5px solid;
+}
+
+.modal--confirmation {
+  border-color: #FF4D4F;
+}
+
+.modal--info {
+  border-color: #007BFF;
+}
+
+.modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #FFF;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal__description {
+  margin: 10px 0 20px;
+  font-size: 14px;
+  color: #CFCFCF;
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modal__button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal__button--primary {
+  background: #007BFF;
+  color: #FFF;
+}
+
+.modal__button--secondary {
+  background: #6C757D;
+  color: #FFF;
+}
+
+.modal__button--danger {
+  background: #FF4D4F;
+  color: #FFF;
+}

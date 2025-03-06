@@ -5,6 +5,7 @@ import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import Drawer from '@/components/ui/Drawer/Drawer';
 import Form from '@/components/ui/Form/Form';
+import Modal from '@/components/ui/Modal/Modal';
 import useToast from '@/hooks/useToast';
 import { fetchUsers } from '@/api/users';
 
@@ -14,6 +15,9 @@ const Users = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { addToast } = useToast();
+  const [editingUser, setEditingUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -37,12 +41,44 @@ const Users = () => {
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
+    if (!isDrawerOpen) setEditingUser(null); // Limpia al cerrar
   };
 
   const handleAddUser = (newUser) => {
     setUsers([...users, { id: users.length + 1, ...newUser }]);
-    addToast("Usuario agregado correctamente.", "success");
+    addToast('Usuario agregado correctamente.', 'success');
     toggleDrawer(); // Cierra el drawer después de agregar
+  };
+
+  // Abrir el drawer con los datos del usuario a editar
+  const handleOpenUpdateUser = (user) => {
+    setEditingUser(user);
+    setIsDrawerOpen(true);
+  };
+
+  // Editar usuario
+  const handleUpdateUser = (updatedUser) => {
+    setUsers(
+      users.map((user) => (user.id === updatedUser.id ? updatedUser : user))
+    );
+    addToast('Usuario actualizado correctamente.', 'success');
+    toggleDrawer();
+    setEditingUser(null); // Resetear estado
+  };
+
+  const handleOpenDeleteModal = (user) => {
+    setUserToDelete(user);
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteUser = () => {
+    const updatedUsers = users.filter((user) => user.id !== userToDelete.id);
+    setUsers(updatedUsers);
+    addToast(
+      `Usuario ${userToDelete.username} eliminado correctamente.`,
+      'success'
+    );
+    setIsModalOpen(false);
   };
 
   const columns = [
@@ -92,7 +128,10 @@ const Users = () => {
           <Button
             variant='primary'
             size='normal'
-            onClick={() => setIsDrawerOpen(true)}
+            onClick={() => {
+              setIsDrawerOpen(true);
+              setEditingUser(null); // 🔹 Limpia los datos previos
+            }}
           >
             Agrega un usuario
           </Button>
@@ -100,19 +139,42 @@ const Users = () => {
         <Drawer
           isOpen={isDrawerOpen}
           onClose={toggleDrawer}
-          title='Agregar Usuario'
+          title={editingUser ? 'Editar Usuario' : 'Agregar Usuario'}
         >
           <Form
             fields={userFields}
-            onSubmit={handleAddUser}
-            submitText='Crear usuario'
+            initialValues={
+              editingUser || { username: '', email: '', password: '', role: '' }
+            }
+            onSubmit={editingUser ? handleUpdateUser : handleAddUser}
+            submitText={editingUser ? 'Actualizar usuario' : 'Crear usuario'}
           />
         </Drawer>
         {loading ? (
           <p>Cargando...</p>
         ) : (
-          <Table data={filteredUsers} columns={columns} />
+          <Table
+            data={filteredUsers}
+            columns={columns}
+            onEdit={handleOpenUpdateUser}
+            onDelete={handleOpenDeleteModal}
+          />
         )}
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title='Eliminar usuario'
+          description={`¿Estás seguro de eliminar a "${userToDelete?.username}" (${userToDelete?.email})?`}
+          variant='confirmation'
+          actions={[
+            {
+              text: 'Cancelar',
+              onClick: () => setIsModalOpen(false),
+              variant: 'secondary',
+            },
+            { text: 'Eliminar', onClick: handleDeleteUser, variant: 'danger' },
+          ]}
+        />
       </div>
     </div>
   );
