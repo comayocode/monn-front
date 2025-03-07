@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "pic": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
       "username": "Armando Paredes",
       "email": "armando.paredes@email.com",
@@ -10,7 +10,7 @@
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "pic": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400",
       "username": "Cristian Paredes",
       "email": "cristian.paredes@email.com",
@@ -19,7 +19,7 @@
       "role": "user"
     },
     {
-      "id": 3,
+      "id": "3",
       "pic": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400",
       "username": "account",
       "email": "account@email.com",
@@ -28,7 +28,7 @@
       "role": "account"
     },
     {
-      "id": 4,
+      "id": "4",
       "pic": "https://randomuser.me/api/portraits/men/1.jpg",
       "username": "Carlos Pérez",
       "email": "carlos.perez@email.com",
@@ -37,7 +37,7 @@
       "role": "admin"
     },
     {
-      "id": 5,
+      "id": "5",
       "pic": "https://randomuser.me/api/portraits/women/2.jpg",
       "username": "Ana Gómez",
       "email": "ana.gomez@email.com",
@@ -46,7 +46,7 @@
       "role": "user"
     },
     {
-      "id": 6,
+      "id": "6",
       "pic": "https://randomuser.me/api/portraits/men/3.jpg",
       "username": "Luis Rodríguez",
       "email": "luis.rodriguez@email.com",
@@ -55,7 +55,7 @@
       "role": "admin"
     },
     {
-      "id": 7,
+      "id": "7",
       "pic": "https://randomuser.me/api/portraits/women/4.jpg",
       "username": "María López",
       "email": "maria.lopez@email.com",
@@ -64,7 +64,7 @@
       "role": "user"
     },
     {
-      "id": 8,
+      "id": "8",
       "pic": "https://randomuser.me/api/portraits/men/5.jpg",
       "username": "Pedro Sánchez",
       "email": "pedro.sanchez@email.com",
@@ -73,7 +73,7 @@
       "role": "editor"
     },
     {
-      "id": 9,
+      "id": "9",
       "pic": "https://randomuser.me/api/portraits/women/6.jpg",
       "username": "Elena Martínez",
       "email": "elena.martinez@email.com",
@@ -82,16 +82,16 @@
       "role": "user"
     },
     {
-      "id": 10,
+      "id": "10",
       "pic": "https://randomuser.me/api/portraits/men/7.jpg",
       "username": "Jorge Herrera",
-      "email": "jorge.herrera@email.com",
+      "email": "jorge.eeeeherrera@email.com",
       "password": "securePass7",
       "2fa": true,
       "role": "editor"
     },
     {
-      "id": 11,
+      "id": "11",
       "pic": "https://randomuser.me/api/portraits/women/8.jpg",
       "username": "Isabel Núñez",
       "email": "isabel.nunez@email.com",
@@ -100,7 +100,7 @@
       "role": "user"
     },
     {
-      "id": 12,
+      "id": "12",
       "pic": "https://randomuser.me/api/portraits/men/9.jpg",
       "username": "Raúl Fernández",
       "email": "raul.fernandez@email.com",
@@ -109,7 +109,7 @@
       "role": "admin"
     },
     {
-      "id": 13,
+      "id": "13",
       "pic": "https://randomuser.me/api/portraits/women/10.jpg",
       "username": "Laura Castillo",
       "email": "laura.castillo@email.com",
@@ -120,7 +120,7 @@
   ],
   "dashboardStats": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Total de clientes",
       "number": 543,
       "icon": "/src/assets/icons/clients.svg",
@@ -129,7 +129,7 @@
       "trendDescription": "Desde hace 1 semana"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Total de productos",
       "number": 129,
       "icon": "/src/assets/icons/package.svg",
@@ -138,7 +138,7 @@
       "trendDescription": "Desde hace 1 semana"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Total de ventas",
       "number": 12528,
       "icon": "/src/assets/icons/shopping-cart.svg",
@@ -147,7 +147,7 @@
       "trendDescription": "Desde hace 1 semana"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Total ingresos pendientes",
       "number": 12543123,
       "icon": "/src/assets/icons/dollar.svg",
@@ -156,7 +156,7 @@
       "trendDescription": "Desde hace 1 semana"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Total",
       "number": 5221,
       "icon": "/src/assets/icons/tag.svg",
@@ -166,36 +166,160 @@
     }
   ],
   "sales": [
-    { "time": "2024-01-01", "value": 1200 },
-    { "time": "2024-01-02", "value": 1350 },
-    { "time": "2024-01-03", "value": 1600 },
-    { "time": "2024-01-04", "value": 1450 },
-    { "time": "2024-01-05", "value": 1700 },
-    { "time": "2024-01-06", "value": 1550 },
-    { "time": "2024-01-07", "value": 1900 },
-    { "time": "2024-01-08", "value": 2100 },
-    { "time": "2024-01-09", "value": 2200 },
-    { "time": "2024-01-10", "value": 1800 },
-    { "time": "2024-01-11", "value": 1750 },
-    { "time": "2024-01-12", "value": 2000 },
-    { "time": "2024-01-13", "value": 1950 },
-    { "time": "2024-01-14", "value": 1850 },
-    { "time": "2024-01-15", "value": 2500 },
-    { "time": "2024-01-16", "value": 2400 },
-    { "time": "2024-01-17", "value": 2600 },
-    { "time": "2024-01-18", "value": 2700 },
-    { "time": "2024-01-19", "value": 2800 },
-    { "time": "2024-01-20", "value": 2300 },
-    { "time": "2024-01-21", "value": 2250 },
-    { "time": "2024-01-22", "value": 2150 },
-    { "time": "2024-01-23", "value": 2000 },
-    { "time": "2024-01-24", "value": 1900 },
-    { "time": "2024-01-25", "value": 700 },
-    { "time": "2024-01-26", "value": 1800 },
-    { "time": "2024-01-27", "value": 1950 },
-    { "time": "2024-01-28", "value": 2050 },
-    { "time": "2024-01-29", "value": 2100 },
-    { "time": "2024-01-30", "value": 2200 },
-    { "time": "2024-01-31", "value": 2250 }
+    {
+      "time": "2024-01-01",
+      "value": 1200,
+      "id": "5098"
+    },
+    {
+      "time": "2024-01-02",
+      "value": 1350,
+      "id": "def1"
+    },
+    {
+      "time": "2024-01-03",
+      "value": 1600,
+      "id": "60ac"
+    },
+    {
+      "time": "2024-01-04",
+      "value": 1450,
+      "id": "7329"
+    },
+    {
+      "time": "2024-01-05",
+      "value": 1700,
+      "id": "b1ee"
+    },
+    {
+      "time": "2024-01-06",
+      "value": 1550,
+      "id": "8ed5"
+    },
+    {
+      "time": "2024-01-07",
+      "value": 1900,
+      "id": "a5a6"
+    },
+    {
+      "time": "2024-01-08",
+      "value": 2100,
+      "id": "c289"
+    },
+    {
+      "time": "2024-01-09",
+      "value": 2200,
+      "id": "95ef"
+    },
+    {
+      "time": "2024-01-10",
+      "value": 1800,
+      "id": "1a0c"
+    },
+    {
+      "time": "2024-01-11",
+      "value": 1750,
+      "id": "e782"
+    },
+    {
+      "time": "2024-01-12",
+      "value": 2000,
+      "id": "cbe5"
+    },
+    {
+      "time": "2024-01-13",
+      "value": 1950,
+      "id": "4540"
+    },
+    {
+      "time": "2024-01-14",
+      "value": 1850,
+      "id": "1bed"
+    },
+    {
+      "time": "2024-01-15",
+      "value": 2500,
+      "id": "2477"
+    },
+    {
+      "time": "2024-01-16",
+      "value": 2400,
+      "id": "c122"
+    },
+    {
+      "time": "2024-01-17",
+      "value": 2600,
+      "id": "28a7"
+    },
+    {
+      "time": "2024-01-18",
+      "value": 2700,
+      "id": "ba0a"
+    },
+    {
+      "time": "2024-01-19",
+      "value": 2800,
+      "id": "50b6"
+    },
+    {
+      "time": "2024-01-20",
+      "value": 2300,
+      "id": "7b20"
+    },
+    {
+      "time": "2024-01-21",
+      "value": 2250,
+      "id": "12fa"
+    },
+    {
+      "time": "2024-01-22",
+      "value": 2150,
+      "id": "7a18"
+    },
+    {
+      "time": "2024-01-23",
+      "value": 2000,
+      "id": "5ffa"
+    },
+    {
+      "time": "2024-01-24",
+      "value": 1900,
+      "id": "ef91"
+    },
+    {
+      "time": "2024-01-25",
+      "value": 700,
+      "id": "8dc0"
+    },
+    {
+      "time": "2024-01-26",
+      "value": 1800,
+      "id": "0089"
+    },
+    {
+      "time": "2024-01-27",
+      "value": 1950,
+      "id": "45b7"
+    },
+    {
+      "time": "2024-01-28",
+      "value": 2050,
+      "id": "f954"
+    },
+    {
+      "time": "2024-01-29",
+      "value": 2100,
+      "id": "8777"
+    },
+    {
+      "time": "2024-01-30",
+      "value": 2200,
+      "id": "f37b"
+    },
+    {
+      "time": "2024-01-31",
+      "value": 2250,
+      "id": "cfdf"
+    }
   ]
 }

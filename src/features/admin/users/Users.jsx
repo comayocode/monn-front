@@ -1,4 +1,5 @@
 import './Users.css';
+import { fetchUsers, addUser, updateUser, deleteUser } from '@/api/users';
 import { useState, useEffect } from 'react';
 import Table from '@/components/ui/Table/Table';
 import Input from '@/components/ui/Input/Input';
@@ -7,7 +8,6 @@ import Drawer from '@/components/ui/Drawer/Drawer';
 import Form from '@/components/ui/Form/Form';
 import Modal from '@/components/ui/Modal/Modal';
 import useToast from '@/hooks/useToast';
-import { fetchUsers } from '@/api/users';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -44,10 +44,15 @@ const Users = () => {
     if (!isDrawerOpen) setEditingUser(null); // Limpia al cerrar
   };
 
-  const handleAddUser = (newUser) => {
-    setUsers([...users, { id: users.length + 1, ...newUser }]);
-    addToast('Usuario agregado correctamente.', 'success');
-    toggleDrawer(); // Cierra el drawer después de agregar
+  const handleAddUser = async (newUser) => {
+    const createdUser = await addUser(newUser);
+    if (createdUser) {
+      setUsers([...users, createdUser]);
+      addToast('Usuario agregado correctamente.', 'success');
+      toggleDrawer();
+    } else {
+      addToast('Error al agregar usuario.', 'error');
+    }
   };
 
   // Abrir el drawer con los datos del usuario a editar
@@ -57,13 +62,20 @@ const Users = () => {
   };
 
   // Editar usuario
-  const handleUpdateUser = (updatedUser) => {
-    setUsers(
-      users.map((user) => (user.id === updatedUser.id ? updatedUser : user))
-    );
-    addToast('Usuario actualizado correctamente.', 'success');
-    toggleDrawer();
-    setEditingUser(null); // Resetear estado
+  const handleUpdateUser = async (updatedUser) => {
+    const updatedUserData = await updateUser(updatedUser.id, updatedUser);
+    if (updatedUserData) {
+      setUsers(
+        users.map((user) =>
+          user.id === updatedUserData.id ? updatedUserData : user
+        )
+      );
+      addToast('Usuario actualizado correctamente.', 'success');
+      toggleDrawer();
+      setEditingUser(null);
+    } else {
+      addToast('Error al actualizar usuario.', 'error');
+    }
   };
 
   const handleOpenDeleteModal = (user) => {
@@ -71,13 +83,13 @@ const Users = () => {
     setIsModalOpen(true);
   };
 
-  const handleDeleteUser = () => {
-    const updatedUsers = users.filter((user) => user.id !== userToDelete.id);
-    setUsers(updatedUsers);
-    addToast(
-      `Usuario ${userToDelete.username} eliminado correctamente.`,
-      'success'
-    );
+  const handleDeleteUser = async () => {
+    if (await deleteUser(userToDelete.id)) {
+      setUsers(users.filter((user) => user.id !== userToDelete.id));
+      addToast(`Usuario ${userToDelete.username} eliminado correctamente.`, 'success');
+    } else {
+      addToast('Error al eliminar usuario.', 'error');
+    }
     setIsModalOpen(false);
   };
 
