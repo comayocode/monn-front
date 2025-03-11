@@ -1,9 +1,10 @@
 import Table from '@/components/ui/Table/Table';
 import PropTypes from 'prop-types';
+import getAvatarURL from '@/hooks/useUSers';
 
 const UserTable = ({ data, onEdit, onDelete }) => {
   const columns = [
-    { key: 'pic', label: 'Imagen', type: 'image' },
+    { key: 'pic', label: 'Imagen', type: 'image', fallback: (row) => getAvatarURL(row.username) },
     { key: 'username', label: 'Nombre' },
     { key: 'email', label: 'Correo' },
     { key: 'password', label: 'Contraseña' },

@@ -109,11 +109,12 @@
       "role": "admin"
     },
     {
-      "id": "ffc3",
-      "username": "a",
-      "email": "a@a",
-      "password": "a",
-      "role": "a"
+      "id": "9b74",
+      "username": "Maria Castañeda",
+      "email": "mcas@email.com",
+      "password": "123123",
+      "role": "Admin",
+      "pic": "https://ui-avatars.com/api/?name=Maria%20Casta%C3%B1eda&background=random"
     }
   ],
   "dashboardStats": [

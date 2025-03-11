@@ -29,7 +29,12 @@ const useUsers = (toggleDrawer, setIsModalOpen) => {
   );
 
   const handleAddUser = async (newUser) => {
-    const createdUser = await addUser(newUser);
+    const userWithAvatar = {
+      ...newUser,
+      pic: newUser.pic?.trim() || getAvatarURL(newUser.username),
+    };
+  
+    const createdUser = await addUser(userWithAvatar);
     if (createdUser) {
       setUsers([...users, createdUser]);
       addToast('Usuario agregado correctamente.', 'success');
@@ -64,6 +69,12 @@ const useUsers = (toggleDrawer, setIsModalOpen) => {
     }
   };
 
+  const getAvatarURL = (name) => {
+    if (!name) return 'https://ui-avatars.com/api/?name=User&background=random';
+    const formattedName = encodeURIComponent(name);
+    return `https://ui-avatars.com/api/?name=${formattedName}&background=random`;
+  };
+
   return {
     users,
     filteredUsers,
@@ -77,6 +88,7 @@ const useUsers = (toggleDrawer, setIsModalOpen) => {
     handleAddUser,
     handleUpdateUser,
     handleDeleteUser,
+    getAvatarURL
   };
 };
 
