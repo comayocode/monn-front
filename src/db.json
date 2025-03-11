@@ -102,20 +102,18 @@
     {
       "id": "12",
       "pic": "https://randomuser.me/api/portraits/men/9.jpg",
-      "username": "Raúl Fernández",
+      "username": "Raúl Fernándezz",
       "email": "raul.fernandez@email.com",
       "password": "securePass9",
       "2fa": true,
       "role": "admin"
     },
     {
-      "id": "13",
-      "pic": "https://randomuser.me/api/portraits/women/10.jpg",
-      "username": "Laura Castillo",
-      "email": "laura.castillo@email.com",
-      "password": "securePass10",
-      "2fa": false,
-      "role": "user"
+      "id": "ffc3",
+      "username": "a",
+      "email": "a@a",
+      "password": "a",
+      "role": "a"
     }
   ],
   "dashboardStats": [
