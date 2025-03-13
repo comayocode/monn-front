@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { fetchUsers, addUser, updateUser, deleteUser } from '@/api/users';
 import useToast from '@/hooks/useToast';
+import useAuth from '@/hooks/useAuth';
 
 const useUsers = (toggleDrawer, setIsModalOpen) => {
+  const { setUser } = useAuth();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -33,7 +35,7 @@ const useUsers = (toggleDrawer, setIsModalOpen) => {
       ...newUser,
       pic: newUser.pic?.trim() || getAvatarURL(newUser.username),
     };
-  
+
     const createdUser = await addUser(userWithAvatar);
     if (createdUser) {
       setUsers([...users, createdUser]);
@@ -44,18 +46,43 @@ const useUsers = (toggleDrawer, setIsModalOpen) => {
     }
   };
 
-  const handleUpdateUser = async (updatedUser) => {
-    const updatedUserData = await updateUser(updatedUser.id, updatedUser);
-    if (updatedUserData) {
-      setUsers(
-        users.map((user) =>
-          user.id === updatedUserData.id ? updatedUserData : user
-        )
+  const handleUpdateUser = async (updatedUser, callback) => {
+    try {
+      // obtener los datos del usuario actual
+      const currentUserData = users.find((u) => u.id === updatedUser.id);
+      if (!currentUserData) return addToast('Error: Usuario no encontrado.', 'error');
+
+      // filtrar las propiedades que han cambiado
+      const filteredUpdates = Object.fromEntries(
+        Object.entries(updatedUser).filter(([key, value]) => value !== currentUserData[key])
       );
-      addToast('Usuario actualizado correctamente.', 'success');
-      toggleDrawer();
-    } else {
+
+      if (Object.keys(filteredUpdates).length === 0) {
+        return addToast('No hay cambios para actualizar.', 'info');
+      }
+
+      // Fusionar los datos y actualizar
+      const updatedUserData = await updateUser(updatedUser.id, { ...currentUserData, ...filteredUpdates });
+      if (!updatedUserData) return addToast('Error al actualizar usuario.', 'error');
+
+      if (updatedUserData) {
+        setUsers((prevUsers) =>
+          prevUsers.map((user) =>
+            user.id === updatedUserData.id ? updatedUserData : user
+          )
+        );
+        setUser(updatedUserData); // Actualiza el usuario autenticado
+        localStorage.setItem("user", JSON.stringify(updatedUserData)); // Actualiza en localStorage
+        addToast('Usuario actualizado correctamente.', 'success');
+
+        if (typeof toggleDrawer === 'function') toggleDrawer();
+        if (typeof callback === 'function') callback();
+      } else {
+        addToast('Error al actualizar usuario.', 'error');
+      }
+    } catch (error) {
       addToast('Error al actualizar usuario.', 'error');
+      console.error(error);
     }
   };
 

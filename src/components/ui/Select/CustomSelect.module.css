@@ -1,0 +1,82 @@
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--field-description);
+  margin-bottom: 4px;
+}
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--field-stroke-hover);
+  background-color: var(--field-bg);
+  color: var(--field-text);
+  font: var(--field-font);
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.selectContainer:hover {
+  border-color: var(--field-stroke-focus);
+}
+
+.selectedValue {
+  flex: 1;
+}
+
+.dropdownIcon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+/* 🔹 Estilos para el menú desplegable */
+.optionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--field-bg);
+  border: 1px solid var(--field-stroke-hover);
+  border-radius: 4px;
+  margin-top: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: var(--cta);
+}
+
+.optionDisabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+/* 🔹 Si el select está deshabilitado */
+.disabled .selectContainer {
+  background-color: var(--field-bg-disabled);
+  color: var(--text-disabled);
+  border-color: var(--field-stroke-disabled);
+  cursor: not-allowed;
+}

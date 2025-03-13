@@ -10,6 +10,7 @@ import {
   Products,
   Users,
   Dashboard,
+  Profile
 } from './lazyImports';
 
 const Routes = () => {
@@ -30,6 +31,15 @@ const Routes = () => {
         />
       ),
       children: [
+        {
+          path: 'perfil',
+          element: (
+            <PrivateRoute
+              element={<Profile />}
+              allowedRoles={[ROLES.ADMIN, ROLES.USER]}
+            />
+          ),
+        },
         {
           path: 'dashboard',
           element: (

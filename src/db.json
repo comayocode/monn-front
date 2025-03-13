@@ -7,7 +7,16 @@
       "email": "armando.paredes@email.com",
       "password": "admin123",
       "2fa": true,
-      "role": "admin"
+      "role": "admin",
+      "gender": "female",
+      "phone": "",
+      "city": "aa",
+      "emails": [
+        {
+          "email": "armando.paredes@email.com",
+          "addedAt": "Hace 2 años"
+        }
+      ]
     },
     {
       "id": "2",
@@ -44,15 +53,6 @@
       "password": "securePass2",
       "2fa": false,
       "role": "user"
-    },
-    {
-      "id": "6",
-      "pic": "https://randomuser.me/api/portraits/men/3.jpg",
-      "username": "Luis Rodríguez",
-      "email": "luis.rodriguez@email.com",
-      "password": "securePass3",
-      "2fa": true,
-      "role": "admin"
     },
     {
       "id": "7",

@@ -57,6 +57,13 @@ input:-webkit-autofill {
   color: var(--text-disabled);
 }
 
+.input:disabled {
+  background-color: var(--field-bg-disabled);
+  color: var(--text-disabled);
+  border-color: var(--field-stroke-disabled);
+  cursor: not-allowed;
+}
+
 /* Ícono dentro del input */
 .inputIcon {
   width: 20px;
@@ -147,4 +154,16 @@ input:-webkit-autofill {
 /* Invertir el color del icono en modo oscuro */
 .eyeIconDark {
   filter: invert(1);
+}
+
+/* Flechas para aumentar o disminuir número */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+  appearance: textfield;
 }

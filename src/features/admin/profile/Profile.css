@@ -1,0 +1,114 @@
+.profile__content {
+  /* max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Banner decorativo */
+.profile__banner {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(to left, var(--cta), #00aaff);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Ajuste del header para que no se superponga al banner */
+.profile__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.profile__info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile__avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #1091a5;
+  padding: 3px;;
+  object-fit: cover;
+}
+
+.profile_basic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile__username {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile__email {
+  font-size: 14px;
+  color: gray;
+  margin: 0;
+}
+
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.profile__emails {
+  margin-top: 20px;
+}
+
+.profile__emails h3 {
+  margin-bottom: 10px;
+}
+
+.profile__email-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.profile__email-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.profile__email-item p {
+  margin: 0;
+}
+
+.profile__email-item span {
+  font-size: 12px;
+  color: gray;
+}
+
+.profile__add-email {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.profile__add-email:disabled {
+  color: gray;
+  cursor: not-allowed;
+}

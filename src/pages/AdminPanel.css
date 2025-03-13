@@ -14,9 +14,11 @@
 .clients__title,
 .products__title,
 .users__title,
+.profile__title,
 .clients__content,
 .products__content,
-.users__content {
+.users__content,
+.profile__content {
   background-color: var(--secondary-bg-admin-panel);
   padding: 21px 40px;
   border-radius: 4px;
@@ -24,6 +26,7 @@
 
 .clients__content,
 .products__content,
-.users__content {
+.users__content,
+.profile__content {
   min-height: calc(100vh - 297px);
 }
