@@ -10,7 +10,9 @@ import {
   Products,
   Users,
   Dashboard,
-  Profile
+  Profile,
+  Twofa,
+  ResetPassword
 } from './lazyImports';
 
 const Routes = () => {
@@ -20,6 +22,8 @@ const Routes = () => {
   const routes = [
     { path: '/', element: <LandingPage /> },
     { path: '/login', element: <Login /> },
+    { path: '/2fa', element: <Twofa /> },
+    { path: '/reset-password', element: <ResetPassword /> },
 
     {
       path: '/admin',

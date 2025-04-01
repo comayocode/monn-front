@@ -1,0 +1,84 @@
+.verify-2fa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #191919;
+}
+
+.verify-2fa_card {
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #262626;
+  text-align: center;
+  width: 400px;
+}
+
+.verify-2fa__title {
+  font: var(--h4-desktop);
+  color: white;
+  margin-bottom: 10px;
+}
+
+.verify-2fa__subtitle {
+  font: var(--body-2-desktop);
+  color: #cfcfcf;
+  margin-bottom: 20px;
+  width: 80%;
+  margin: 15px auto 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.code-input input {
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  border: 1px solid #5a4fff;
+  border-radius: 8px;
+  background: #212121;
+  color: white;
+  outline: none;
+  letter-spacing: 6px;
+}
+
+.verify-2fa__timer {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.code-2fa__timer--text {
+  color: var(--text-validation);
+  font: var(--body-2-desktop);
+}
+
+.code-2fa__timer--code {
+  color: var(--text-validation);
+  font: var(--h4-desktop);
+}
+
+.code-2fa__timer--expired {
+  color: var(--text-error);
+  font: var(--h5-desktop);
+}
+
+.verify-2fa__resend {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.verify-2fa__resend:disabled {
+  color: gray;
+  cursor: not-allowed;
+}

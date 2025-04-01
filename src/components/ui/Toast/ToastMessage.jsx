@@ -31,6 +31,11 @@ const ToastMessage = ({ id, message, type, duration = 10000, onClose }) => {
     return () => clearTimeout(timer);
   }, [id, duration, onClose]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => onClose(id), duration);
+    return () => clearTimeout(timer);
+  }, [id, duration, onClose]);
+
   const handleClose = () => {
     setVisible(false);
     setTimeout(() => onClose(id), 300);

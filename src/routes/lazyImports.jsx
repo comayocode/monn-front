@@ -3,7 +3,9 @@ import { lazy } from "react";
 // Lazy loading de páginas principales
 export const AdminPanel = lazy(() => import("@/pages/AdminPanel"));
 export const LandingPage = lazy(() => import("@/pages/LandingPage"));
-export const Login = lazy(() => import("@/pages/Login"));
+export const Login = lazy(() => import("@/pages/Login/Login"));
+export const Twofa = lazy(() => import("@/pages/TwoFactorAuth/TwoFactorAuth"));
+export const ResetPassword = lazy(() => import("@/pages/ResetPassword/ResetPassword"));
 
 // Lazy loading de subrutas del panel de administración
 export const Clients = lazy(() => import("@/features/admin/clients/Clients"));

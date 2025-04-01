@@ -7,10 +7,10 @@ const PrivateRoute = ({ element, allowedRoles }) => {
 
   if (isLoading) return null;
 
-  if (!user) return <Navigate to='/login' />;
+  if (!user) return <Navigate to='/login' replace/>;
 
   const hasAccess = allowedRoles.includes(user.role);
-  return hasAccess ? element : <Navigate to='/' />;
+  return hasAccess ? element : <Navigate to='/' replace/>;
 };
 
 PrivateRoute.propTypes = {

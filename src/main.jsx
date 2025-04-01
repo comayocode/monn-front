@@ -9,15 +9,15 @@ import { ThemeProvider } from './context/ThemeContext.jsx';
 import { ToastProvider } from './context/ToastContextProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <AuthProvider>
-    <StrictMode>
-      <SuspenseWithDelay delay={250}>
+  <StrictMode>
+    <ToastProvider>
+      <AuthProvider>
         <ThemeProvider>
-          <ToastProvider>
+          <SuspenseWithDelay delay={250}>
             <App />
-          </ToastProvider>
+          </SuspenseWithDelay>
         </ThemeProvider>
-      </SuspenseWithDelay>
-    </StrictMode>
-  </AuthProvider>
+      </AuthProvider>
+    </ToastProvider>
+  </StrictMode>
 );

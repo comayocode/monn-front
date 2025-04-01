@@ -39,7 +39,7 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger', 'link']),
   size: PropTypes.oneOf(['small', 'normal', 'medium', 'large']),
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(["left", "right"]),

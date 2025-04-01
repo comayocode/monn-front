@@ -78,6 +78,17 @@
   background-color: #c0392b;
 }
 
+.btn--link {
+  background-color: transparent;
+  color: var(--para-light-bg);
+}
+
+.btn--link:hover {
+  background-color: transparent;
+  color: var(--text-validation);
+  text-decoration: underline;
+}
+
 /* Estado Active (Clic) */
 .btn:active,
 .btn--primary:active{
@@ -89,6 +100,12 @@
   background-color: var(--bg-hover);
   border: 1px solid var(--bg-hover);
   transform: scale(0.98);
+}
+
+.btn--link:active {
+  background-color: transparent;
+  color: var(--text-validation);
+  text-decoration: underline;
 }
 
 /* Estado Disabled */

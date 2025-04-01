@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 function Sidebar({ isSidebarOpen }) {
   const { logout } = useAuth();
-  const user = JSON.parse(localStorage.getItem('user'));
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {

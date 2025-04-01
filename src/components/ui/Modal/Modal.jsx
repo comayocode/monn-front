@@ -1,7 +1,7 @@
 import './Modal.css';
 import PropTypes from 'prop-types';
 
-const Modal = ({ isOpen, onClose, title, description, variant, actions }) => {
+const Modal = ({ isOpen, onClose, title, description, children, variant, actions }) => {
   if (!isOpen) return null;
 
   return (
@@ -15,6 +15,9 @@ const Modal = ({ isOpen, onClose, title, description, variant, actions }) => {
         </button>
         <h2 className='modal__title'>{title}</h2>
         <p className='modal__description'>{description}</p>
+        <div className="modal__content">
+          {children} {/* Aquí va el formulario */}
+        </div>
         <div className='modal__actions'>
           {actions?.map(({ text, onClick, variant }, index) => (
             <button
@@ -36,6 +39,7 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  children: PropTypes.node, // Agregamos children
   variant: PropTypes.string.isRequired,
   actions: PropTypes.arrayOf(
     PropTypes.shape({

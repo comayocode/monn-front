@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import './Form.css';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
+import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import useToast from '@/hooks/useToast';
 
 const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
@@ -11,19 +12,18 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
     Object.fromEntries(fields.map((field) => [field.name, false]))
   );
 
-  // Cargar datos cuando initialValues cambie
-  useEffect(() => {
-    if (initialValues) {
-      setFormData(initialValues);
-    }
-  }, [initialValues]);
+  const [formData, setFormData] = useState(() => {
+    const initialData = {};
+    fields.forEach(field => {
+      initialData[field.name] = initialValues[field.name] ?? field.defaultValue ?? '';
+    });
+    return initialData;
+  });
 
-  const [formData, setFormData] = useState(
-    fields.reduce(
-      (acc, field) => ({ ...acc, [field.name]: field.defaultValue || '' }),
-      {}
-    )
-  );
+  // useCallback para memoizar handlers
+  const handleInputChange = useCallback((fieldName, value) => {
+    setFormData(prev => ({ ...prev, [fieldName]: value }));
+  }, []);
 
   // 🔹 Estado para controlar la visibilidad de las contraseñas
   const [passwordVisibility, setPasswordVisibility] = useState(
@@ -31,14 +31,6 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
       .filter((field) => field.variant === 'password')
       .reduce((acc, field) => ({ ...acc, [field.name]: false }), {})
   );
-
-  const handleInputChange = (fieldName, value) => {
-    setFormData((prevData) => ({ ...prevData, [fieldName]: value }));
-
-    if (emptyFields[fieldName]) {
-        setEmptyFields((prevFields) => ({ ...prevFields, [fieldName]: false }));
-    }
-};
 
   // 🔹 Alternar visibilidad de la contraseña
   const togglePasswordVisibility = (name) => {
@@ -52,7 +44,9 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
     e.preventDefault();
 
     const newEmptyFields = fields.reduce((acc, field) => {
-      acc[field.name] = !formData[field.name]?.trim();
+      if (field.type !== 'checkbox') {
+        acc[field.name] = !formData[field.name]?.trim();
+      }
       return acc;
     }, {});
 
@@ -70,22 +64,32 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
     <form className='form' onSubmit={handleSubmit}>
       {fields.map(({ name, label, type, placeholder, variant }) => (
         <div key={name} className='form__group'>
-          <Input
-            key={name}
-            id={name}
-            name={name}
-            label={label}
-            type={
-              variant === 'password' && passwordVisibility[name] ? 'text' : type
-            }
-            placeholder={placeholder}
-            value={formData[name]}
-            onChange={(e) => handleInputChange(name, e.target.value)}
-            error={emptyFields[name]}
-            variant={variant}
-            isPasswordVisible={passwordVisibility[name]}
-            onTogglePassword={() => togglePasswordVisibility(name)}
-          />
+          {type === 'checkbox' ? (
+            <Checkbox
+              label={label}
+              checked={formData[name] || false}
+              onChange={() => handleInputChange(name, !formData[name])}
+            />
+          ) : (
+            <Input
+              key={name}
+              id={name}
+              name={name}
+              label={label}
+              type={
+                variant === 'password' && passwordVisibility[name]
+                  ? 'text'
+                  : type
+              }
+              placeholder={placeholder}
+              value={formData[name]}
+              onChange={(e) => handleInputChange(name, e.target.value)}
+              error={emptyFields[name]}
+              variant={variant}
+              isPasswordVisible={passwordVisibility[name]}
+              onTogglePassword={() => togglePasswordVisibility(name)}
+            />
+          )}
         </div>
       ))}
 
