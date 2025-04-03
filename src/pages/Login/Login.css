@@ -1,0 +1,9 @@
+.login__forgot-password {
+  padding: 2px 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  margin-top: -20px;
+}
+

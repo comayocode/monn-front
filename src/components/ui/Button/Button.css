@@ -136,3 +136,18 @@
   transform: translateX(4px);
 }
 
+.margin-top-15 {
+  margin-top: 15px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+.margin-top-none {
+  margin-top: 0;
+}

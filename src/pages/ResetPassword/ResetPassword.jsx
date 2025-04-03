@@ -18,6 +18,7 @@ const ResetPassword = () => {
           token={token}
           initialValues={{ password: '', confirmPassword: '' }}
           submitText='Guardar nueva contraseña'
+          btnMarginTop={25}
         />
       </div>
     </div>

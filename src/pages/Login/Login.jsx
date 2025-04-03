@@ -21,15 +21,19 @@ function Login() {
           onSubmit={handleLoginUser}
           initialValues={{ email: '', password: '' }}
           submitText='Ingresar'
-        />
-      </div>
-      <Button
-        variant='link'
-        className='login__forgot-password'
-        onClick={() => setIsModalOpen(true)}
+          btnMarginTop={25}
       >
-        ¿Olvidaste tu contraseña?
-      </Button>
+        <Button
+          variant='link'
+          className='login__forgot-password'
+          onClick={() => setIsModalOpen(true)}
+          type='button'
+        >
+          ¿Olvidaste tu contraseña?
+        </Button>
+      </LoginForm>
+      </div>
+
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

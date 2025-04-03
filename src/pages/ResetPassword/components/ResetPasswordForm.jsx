@@ -1,7 +1,7 @@
 import Form from '@/components/ui/Form/Form';
 import PropTypes from 'prop-types';
 
-const ResetPasswordForm = ({ onSubmit, token, initialValues, submitText }) => {
+const ResetPasswordForm = ({ onSubmit, token, initialValues, submitText, btnMarginTop }) => {
 
   console.log('Renderizando ResetPasswordForm...')
   const fields = [
@@ -18,6 +18,7 @@ const ResetPasswordForm = ({ onSubmit, token, initialValues, submitText }) => {
         onSubmit(values, token);
       }}
       submitText={submitText}
+      btnMarginTop={btnMarginTop}
     />
   );
 };
@@ -27,6 +28,10 @@ ResetPasswordForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   initialValues: PropTypes.object.isRequired,
   submitText: PropTypes.string.isRequired,
+  btnMarginTop: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.oneOf(['15', '20', '25', 'none'])
+    ]),
 };
 
 export default ResetPasswordForm;

@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import useToast from '@/hooks/useToast';
 
-const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
+const Form = ({ initialValues = {}, fields, onSubmit, submitText, btnMarginTop, children }) => {
   const { addToast } = useToast();
   const [emptyFields, setEmptyFields] = useState(
     Object.fromEntries(fields.map((field) => [field.name, false]))
@@ -93,7 +93,10 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText }) => {
         </div>
       ))}
 
-      <Button variant='primary' size='normal' type='submit'>
+      {children && <div className="form__children">{children}</div>}
+
+
+      <Button variant='primary' size='normal' type='submit' marginTop={btnMarginTop}>
         {submitText}
       </Button>
     </form>
@@ -113,6 +116,11 @@ Form.propTypes = {
   ).isRequired,
   onSubmit: PropTypes.func.isRequired,
   submitText: PropTypes.string,
+  children: PropTypes.node,
+  btnMarginTop: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(['15', '20', '25', 'none'])
+  ]),
 };
 
 export default Form;

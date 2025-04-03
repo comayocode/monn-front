@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Button.css';
+import '@/pages/Login/Login.css'
 
 const Button = ({
   children,
@@ -13,14 +14,19 @@ const Button = ({
   isLink = false,
   to = '#',
   onClick,
+  className = '',
+  type={type},
+  marginTop
 }) => {
+  const marginClass = marginTop ? `margin-top-${marginTop}` : '';
+
   const classNames = `btn btn--${variant} btn--${size} ${
     fullWidth ? 'btn--full' : ''
-  } ${disabled ? 'btn--disabled' : ''}`;
+  } ${disabled ? 'btn--disabled' : ''} ${marginClass ? marginClass : ''.trim()} ${className}`.trim();
 
   if (isLink) {
     return (
-      <Link to={to} className={classNames}>
+      <Link onClick={onclick} to={to} className={classNames}>
         {icon && iconPosition === 'left' && <img src={icon} alt='icon' />}
         {children}
         {icon && iconPosition === 'right' && <img src={icon} alt='icon' />}
@@ -29,7 +35,7 @@ const Button = ({
   }
 
   return (
-    <button className={classNames} disabled={disabled} onClick={onClick}>
+    <button className={classNames} disabled={disabled} onClick={onClick} type={type}>
       {icon && iconPosition === 'left' && <img src={icon} alt='icon' />}
       {children}
       {icon && iconPosition === 'right' && <img src={icon} alt='icon' />}
@@ -48,6 +54,12 @@ Button.propTypes = {
   isLink: PropTypes.bool,
   to: PropTypes.string,
   onClick: PropTypes.func,
+  className: PropTypes.string,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  marginTop: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(['15', '20', '25', 'none'])
+  ]),
 };
 
 export default Button;
