@@ -12,7 +12,7 @@ export const apiLogin = async (email, password) => {
 
     return response.data; // Devuelve el token JWT y si el usuario tiene 2FA
   } catch (error) {
-    return { success: false, message: "Credenciales inválidas", error };
+    return { message: error.response.data.message, error };
   }
 };
 
@@ -45,6 +45,15 @@ export const resetPassword = async (token, password) => {
   }
 };
 
+export const apiSignUp = async (firstName, lastName, email, password) => {
+  try {
+    const response = await api.post('/auth/register', { firstName, lastName, email, password });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { message: 'Error inesperado' };
+  }
+};
+
 // ✅ Decodificar el token y extraer datos
 export const getUserFromToken = () => {
   const token = localStorage.getItem("token");
@@ -53,7 +62,6 @@ export const getUserFromToken = () => {
   try {
     const decoded = jwtDecode(token);
     const role = decoded.role?.[0]?.name.replace("ROLE_", "").toLowerCase(); // ✅ Convertimos el rol
-    console.log({role});
     return {
       username: decoded.sub, // Normalmente el email o username
       role: role || "user", // ✅ Asignamos "user" por defecto si no hay rol

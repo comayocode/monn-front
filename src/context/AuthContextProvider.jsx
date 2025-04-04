@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { apiLogin, getUserFromToken, requestPasswordReset } from '@/api/auth';
+import { apiLogin, getUserFromToken, requestPasswordReset, apiSignUp } from '@/api/auth';
 import { AuthContext } from '@/context/AuthContext';
 import useToast from '@/hooks/useToast';
 
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, authenticateUser, logout, handleForgotPassword }}
+      value={{ user, setUser, authenticateUser, logout, handleForgotPassword, apiSignUp }}
     >
       {children}
     </AuthContext.Provider>

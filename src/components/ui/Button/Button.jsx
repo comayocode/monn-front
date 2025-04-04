@@ -15,7 +15,7 @@ const Button = ({
   to = '#',
   onClick,
   className = '',
-  type={type},
+  type,
   marginTop
 }) => {
   const marginClass = marginTop ? `margin-top-${marginTop}` : '';
@@ -55,7 +55,7 @@ Button.propTypes = {
   to: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  type: PropTypes.oneOf(['button', 'submit', 'reset', null]),
   marginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['15', '20', '25', 'none'])

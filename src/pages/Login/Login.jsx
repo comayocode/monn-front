@@ -34,6 +34,15 @@ function Login() {
       </LoginForm>
       </div>
 
+      <Button
+          variant='link'
+          className='login__signup-btn'
+          isLink={true}
+          to='/signup'
+        >
+          ¿No tienes una cuenta? Regístrate
+        </Button>
+
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
