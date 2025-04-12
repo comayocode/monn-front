@@ -13,10 +13,10 @@
   --menu-links-hover-dark: #2F2F2F;
   --admin-bg-dark: #1B1A1F;
   --admin-calc-height: 81px;
-  --btn-primary-bg-disabled: #F4F3FE;
-  --btn-primary-text-disabled: #C5C0DB;
-  --btn-secondary-bg-disabled: #F4F3FE;
-  --btn-secondary-text-disabled: #C5C0DB;
+  --btn-primary-bg-disabled: #4a4a4a;
+  --btn-primary-text-disabled: #F4F3FE;
+  --btn-secondary-bg-disabled: #4a4a4a;
+  --btn-secondary-text-disabled: #F4F3FE;
   --btn-primary-bg-clicked: #23209F;
   --btn-danger: #e74c3c;
   --btn-danger-hover:#c0392b;

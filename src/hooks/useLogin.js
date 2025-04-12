@@ -10,29 +10,41 @@ const useLogin = () => {
   const navigate = useNavigate();
 
   const handleLoginUser = async (formData) => {
-
     try {
-      const {email, password} = formData;
+      const { email, password } = formData;
       const response = await authenticateUser(email, password);
-      console.log('Respuesta del backend:', response);
-      if (response?.status === 200) {
-        addToast('Ingreso exitoso.', 'success');
-        navigate('/admin/dashboard')
-      } else if (response?.expiresAt) {
-        // Verifica si `expiresAt` existe
-        localStorage.setItem('tempEmail', email);
-        navigate('/2fa');
-      } else if (response?.accessToken) {
-        // Verifica si el token existe
+      // Login exitoso (con token)
+      if (response?.accessToken) {
         localStorage.setItem('token', response.accessToken);
         setUser(getUserFromToken());
+        addToast('Ingreso exitoso.', 'success');
         navigate('/admin/dashboard');
-      } else {
-        addToast(response.message || 'Error inesperado.', 'error');
+        return;
       }
+      // Requiere 2FA
+      if (response?.expiresAt) {
+        localStorage.setItem('tempEmail', email);
+        navigate('/2fa');
+        return;
+      }
+      addToast(response?.message || 'Error inesperado.', 'error');
 
     } catch (error) {
-      addToast('Error al restablecer la contraseña.', 'error', error);
+      console.log({ error });
+      // Cuenta no verificada con token expirado y/o con token activo
+      if (error?.status === 403 && error.response?.data?.data?.email || error?.status === 500) {
+        const { email, expiresAt } = error.response.data.data;
+        const statusCode = error.response.status;
+        localStorage.setItem('pendingVerification', JSON.stringify({ email, expiresAt, statusCode, lastUpdated: new Date().toISOString() }));
+        navigate('/verify-account-pending');
+        return;
+      }
+      // Otros errores
+      addToast(
+        error.response?.data?.message ||
+        'Error al iniciar sesión. Intenta nuevamente.',
+        'error'
+      );
     }
   };
 

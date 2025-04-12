@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+// import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/global.css';
 import 'normalize.css';
@@ -8,8 +8,9 @@ import { AuthProvider } from './context/AuthContextProvider';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { ToastProvider } from './context/ToastContextProvider.jsx';
 
+//TODO: Descomentar StricMode en producción
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <ToastProvider>
       <AuthProvider>
         <ThemeProvider>
@@ -19,5 +20,5 @@ createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </AuthProvider>
     </ToastProvider>
-  </StrictMode>
+  // </StrictMode>
 );

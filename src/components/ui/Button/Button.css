@@ -114,7 +114,6 @@
   background-color: var(--btn-primary-bg-disabled);
   color: var(--btn-primary-text-disabled);
   cursor: not-allowed;
-  pointer-events: none;
 }
 
 .btn--secondary.btn--disabled {

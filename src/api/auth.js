@@ -3,17 +3,10 @@ import { jwtDecode } from "jwt-decode";
 
 
 export const apiLogin = async (email, password) => {
-  try {
-    const response = await api.post("/auth/login", { email, password });
+  const response = await api.post("/auth/login", { email, password });
+  console.log({ response }); // 🛠 Debug
 
-    const { accessToken } = response.data;
-    localStorage.setItem("token", accessToken); // ✅ Guardamos el token
-    localStorage.setItem("expiresAt", response.data.expiresAt); // Guardamos la fecha de expiración
-
-    return response.data; // Devuelve el token JWT y si el usuario tiene 2FA
-  } catch (error) {
-    return { message: error.response.data.message, error };
-  }
+  return response.data; // Devuelve el token JWT y si el usuario tiene 2FA
 };
 
 export const verify2FA = async (email, code, rememberDevice) => {
@@ -50,7 +43,7 @@ export const apiSignUp = async (firstName, lastName, email, password) => {
     const response = await api.post('/auth/register', { firstName, lastName, email, password });
     return response.data;
   } catch (error) {
-    throw error.response?.data || { message: 'Error inesperado' };
+    console.error('Error al registrar:', error);
   }
 };
 
@@ -69,5 +62,30 @@ export const getUserFromToken = () => {
   } catch (error) {
     console.error("Error decoding token:", error);
     return null;
+  }
+};
+
+export const apiResendVerificationEmail = async (email) => {
+  try {
+    const response = await api.post('/auth/resend-verification', { email });
+    return response.data;
+  } catch (error) {
+    return error.response;
+  }
+}
+
+export const apiVerifyAccount = async (token) => {
+  try {
+    const response = await api.post('/auth/verify', { token });
+    return {
+      status: response.status,
+      data: response.data
+    };
+  } catch (error) {
+    // Devolver error estructurado
+    return {
+      status: error.response?.status || 500,
+      data: error.response?.data || { message: 'Error de conexión' }
+    };
   }
 };

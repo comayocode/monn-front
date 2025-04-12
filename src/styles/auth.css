@@ -28,3 +28,7 @@
   border-radius: 12px;
   border: 1px solid #363636;
 }
+
+.auth__timer {
+  color: var(--text-validation);
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { apiLogin, getUserFromToken, requestPasswordReset, apiSignUp } from '@/api/auth';
+import { apiLogin, getUserFromToken, requestPasswordReset, apiSignUp, apiResendVerificationEmail, apiVerifyAccount } from '@/api/auth';
 import { AuthContext } from '@/context/AuthContext';
 import useToast from '@/hooks/useToast';
 
@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
 
   const authenticateUser = async (email, password) => {
     const result = await apiLogin(email, password);
-    console.log({result});
     if (result.success) {
       const userData = getUserFromToken(); // Decodificamos el token
       setUser(userData); // Guardamos el usuario en el estado
@@ -50,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, authenticateUser, logout, handleForgotPassword, apiSignUp }}
+      value={{ user, setUser, authenticateUser, logout, handleForgotPassword, apiSignUp, apiResendVerificationEmail, apiVerifyAccount }}
     >
       {children}
     </AuthContext.Provider>
