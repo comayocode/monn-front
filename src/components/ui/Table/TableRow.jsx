@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types';
 import TableActions from './TableActions';
 
+// Acceder a un valor anidado en un objeto usando una cadena de claves
+const getNestedValue = (obj, keyPath) => {
+  return keyPath.split('.').reduce((acc, key) => acc?.[key], obj);
+};
+
 const TableRow = ({ row, columns, onEdit, onDelete }) => {
   return (
     <tr className='table__row'>
@@ -8,12 +13,12 @@ const TableRow = ({ row, columns, onEdit, onDelete }) => {
         <td key={`${row.id}-${col.key}`} className='table__cell'>
           {col.key === 'pic' ? (
             <img
-              src={row[col.key]}
+              src={getNestedValue(row, col.key)}
               alt='Perfil'
               className='table__profile-pic'
             />
           ) : col.key === '2fa' ? (
-            row[col.key] ? (
+            getNestedValue(row, col.key) ? (
               'Sí'
             ) : (
               '-'
@@ -21,7 +26,7 @@ const TableRow = ({ row, columns, onEdit, onDelete }) => {
           ) : col.key === 'actions' ? (
             <TableActions onEdit={() => onEdit(row)} onDelete={() => onDelete(row)} />
           ) : (
-            row[col.key]
+            getNestedValue(row, col.key)
           )}
         </td>
       ))}
