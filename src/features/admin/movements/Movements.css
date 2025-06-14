@@ -1,0 +1,24 @@
+.movements__content {
+  display: flex;
+  gap: 40px;
+}
+
+.movements__charts {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart__title {
+  margin-top: 0;
+}
+
+.chart__expense,
+.chart__income {
+  height: 50%;
+}
+
+.movements__add-button {
+  padding-top: 6px;  padding-bottom: 6px;
+}

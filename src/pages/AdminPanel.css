@@ -18,10 +18,25 @@
 .clients__content,
 .products__content,
 .users__content,
-.profile__content {
+.profile__content,
+.movements__content {
   background-color: var(--secondary-bg-admin-panel);
   padding: 21px 40px;
   border-radius: 4px;
+}
+
+.movements__title {
+  margin: 0;
+}
+
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  max-height: 80px;
+  background-color: var(--secondary-bg-admin-panel);
+  padding: 21px 40px;
+  border-radius: 4px;
+  margin: 21px 0;
 }
 
 .clients__content,

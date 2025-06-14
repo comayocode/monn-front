@@ -15,3 +15,4 @@ export const Products = lazy(() => import("@/features/admin/products/Products"))
 export const Users = lazy(() => import("@/features/admin/users/Users"));
 export const Dashboard = lazy(() => import("@/features/admin/dashboard/Dashboard"));
 export const Profile = lazy(() => import("@/features/admin/profile/Profile"));
+export const Movements = lazy(() => import("@/features/admin/movements/Movements"));

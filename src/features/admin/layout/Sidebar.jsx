@@ -23,6 +23,12 @@ function Sidebar({ isSidebarOpen }) {
       roles: ['admin', 'user'],
     },
     {
+      title: 'Movimientos',
+      icon: '/src/assets/icons/movements.svg',
+      path: '/admin/movimientos',
+      roles: ['admin', 'user'],
+    },
+    {
       title: 'Clientes',
       icon: '/src/assets/icons/clients.svg',
       path: '/admin/clientes',

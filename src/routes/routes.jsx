@@ -14,7 +14,8 @@ import {
   Twofa,
   ResetPassword,
   SignUp,
-  VerifyAccount
+  VerifyAccount,
+  Movements,
 } from './lazyImports';
 
 const Routes = () => {
@@ -58,6 +59,15 @@ const Routes = () => {
           ),
         },
         {
+          path: 'movimientos',
+          element: (
+            <PrivateRoute
+              element={<Movements />}
+              allowedRoles={[ROLES.ADMIN, ROLES.USER]}
+            />
+          ),
+        },
+        {
           path: 'clientes',
           element: (
             <PrivateRoute
@@ -78,10 +88,7 @@ const Routes = () => {
         {
           path: 'usuarios',
           element: (
-            <PrivateRoute
-              element={<Users />}
-              allowedRoles={[ROLES.ADMIN]}
-            />
+            <PrivateRoute element={<Users />} allowedRoles={[ROLES.ADMIN]} />
           ),
         },
         { path: '*', element: <Navigate to='/admin/dashboard' /> },
