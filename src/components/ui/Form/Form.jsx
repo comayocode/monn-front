@@ -4,9 +4,17 @@ import './Form.css';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
+import CustonSelect from '@/components/ui/Select/CustonSelect';
 import useToast from '@/hooks/useToast';
 
-const Form = ({ initialValues = {}, fields, onSubmit, submitText, btnMarginTop, children }) => {
+const Form = ({
+  initialValues = {},
+  fields,
+  onSubmit,
+  submitText,
+  btnMarginTop,
+  children,
+}) => {
   const { addToast } = useToast();
   const [emptyFields, setEmptyFields] = useState(
     Object.fromEntries(fields.map((field) => [field.name, false]))
@@ -14,15 +22,16 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText, btnMarginTop, 
 
   const [formData, setFormData] = useState(() => {
     const initialData = {};
-    fields.forEach(field => {
-      initialData[field.name] = initialValues[field.name] ?? field.defaultValue ?? '';
+    fields.forEach((field) => {
+      initialData[field.name] =
+        initialValues[field.name] ?? field.defaultValue ?? '';
     });
     return initialData;
   });
 
   // useCallback para memoizar handlers
   const handleInputChange = useCallback((fieldName, value) => {
-    setFormData(prev => ({ ...prev, [fieldName]: value }));
+    setFormData((prev) => ({ ...prev, [fieldName]: value }));
   }, []);
 
   // 🔹 Estado para controlar la visibilidad de las contraseñas
@@ -62,41 +71,56 @@ const Form = ({ initialValues = {}, fields, onSubmit, submitText, btnMarginTop, 
 
   return (
     <form className='form' onSubmit={handleSubmit}>
-      {fields.map(({ name, label, type, placeholder, variant }) => (
-        <div key={name} className='form__group'>
-          {type === 'checkbox' ? (
-            <Checkbox
-              label={label}
-              checked={formData[name] || false}
-              onChange={() => handleInputChange(name, !formData[name])}
-            />
-          ) : (
-            <Input
-              key={name}
-              id={name}
-              name={name}
-              label={label}
-              type={
-                variant === 'password' && passwordVisibility[name]
-                  ? 'text'
-                  : type
-              }
-              placeholder={placeholder}
-              value={formData[name]}
-              onChange={(e) => handleInputChange(name, e.target.value)}
-              error={emptyFields[name]}
-              variant={variant}
-              isPasswordVisible={passwordVisibility[name]}
-              onTogglePassword={() => togglePasswordVisibility(name)}
-            />
-          )}
-        </div>
-      ))}
+      {fields.map(
+        ({ name, label, type, placeholder, variant, options, disabled }) => (
+          <div key={name} className='form__group'>
+            {type === 'checkbox' ? (
+              <Checkbox
+                label={label}
+                checked={formData[name] || false}
+                onChange={() => handleInputChange(name, !formData[name])}
+              />
+            ) : type === 'select' ? (
+              <CustonSelect
+                label={label}
+                name={name}
+                options={options || []}
+                value={formData[name]}
+                onChange={(e) => handleInputChange(name, e.target.value)}
+                disabled={disabled}
+              />
+            ) : (
+              <Input
+                key={name}
+                id={name}
+                name={name}
+                label={label}
+                type={
+                  variant === 'password' && passwordVisibility[name]
+                    ? 'text'
+                    : type
+                }
+                placeholder={placeholder}
+                value={formData[name]}
+                onChange={(e) => handleInputChange(name, e.target.value)}
+                error={emptyFields[name]}
+                variant={variant}
+                isPasswordVisible={passwordVisibility[name]}
+                onTogglePassword={() => togglePasswordVisibility(name)}
+              />
+            )}
+          </div>
+        )
+      )}
 
-      {children && <div className="form__children">{children}</div>}
+      {children && <div className='form__children'>{children}</div>}
 
-
-      <Button variant='primary' size='normal' type='submit' marginTop={btnMarginTop}>
+      <Button
+        variant='primary'
+        size='normal'
+        type='submit'
+        marginTop={btnMarginTop}
+      >
         {submitText}
       </Button>
     </form>
@@ -119,7 +143,7 @@ Form.propTypes = {
   children: PropTypes.node,
   btnMarginTop: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.oneOf(['15', '20', '25', 'none'])
+    PropTypes.oneOf(['15', '20', '25', 'none']),
   ]),
 };
 

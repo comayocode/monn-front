@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './CustomSelect.module.css';
-// import dropdownIcon from '@/assets/icons/arrow-down.svg';
 import variables from '@/styles/variables.module.css';
 import { DownIcon } from '@/components/ui/icons';
 import { useTheme } from '@/context/ThemeContext';
 
-const CustomSelect = ({ label, options, name, value, onChange, disabled }) => {
+const CustomSelect = ({
+  label,
+  options,
+  name,
+  value,
+  onChange,
+  disabled,
+  error,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [themeClass, setThemeClass] = useState(variables['input-light']);
   const { theme } = useTheme();
@@ -44,7 +51,9 @@ const CustomSelect = ({ label, options, name, value, onChange, disabled }) => {
       {label && <label className={styles.label}>{label}</label>}
 
       <div
-        className={`${styles.selectContainer} ${isOpen ? styles.open : ''}`}
+        className={`${styles.selectContainer} ${isOpen ? styles.open : ''} ${
+          error ? styles['select--error'] : ''
+        }`}
         onClick={() => !disabled && setIsOpen(!isOpen)}
       >
         <span className={styles.selectedValue}>
@@ -55,7 +64,7 @@ const CustomSelect = ({ label, options, name, value, onChange, disabled }) => {
       </div>
 
       {isOpen && (
-        <ul className={`${styles.optionsList} ${isOpen ? styles.open : ''}`} >
+        <ul className={`${styles.optionsList} ${isOpen ? styles.open : ''}`}>
           {options.map((option) => (
             <li
               key={option.value}
@@ -86,6 +95,7 @@ CustomSelect.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 export default CustomSelect;
