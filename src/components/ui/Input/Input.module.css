@@ -90,13 +90,15 @@ input:-webkit-autofill {
   margin-top: 4px;
 }
 
-/* 🟣 Estilos específicos para Input de contraseña */
-.passwordWrapper {
+/* 🟣 Estilos específicos para Input  de contraseña y calendarWrapper */
+.passwordWrapper,
+.calendarWrapper {
   position: relative;
 }
 
-/* Estilo del botón del ojo en input de contraseña */
-.eyeButton {
+/* Estilo del botón del ojo en input de contraseña y del calendar */
+.eyeButton,
+.calendarButton {
   position: absolute;
   right: 16px;
   background: none;
@@ -108,19 +110,22 @@ input:-webkit-autofill {
   padding: 0;
 }
 
-.eyeButton img {
+.eyeButton img,
+.calendarButton img {
   width: 20px;
   height: 20px;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
-.eyeButton:hover img {
+.eyeButton:hover img,
+.calendarButton:hover img {
   opacity: 1;
 }
 
 /* Invertir el color en el modo oscuro */
-.eyeIconDark {
+.eyeIconDark,
+.calendarIconDark {
   filter: invert(1);
 }
 

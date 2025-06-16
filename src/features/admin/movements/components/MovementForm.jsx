@@ -36,8 +36,8 @@ function getDynamicFields(formData) {
       {
         name: 'dueDate',
         label: 'Fecha de vencimiento',
-        type: 'text',
-        placeholder: '2025-06-15T23:56:20',
+        type: 'date',
+        placeholder: '2025-06-15',
       },
     ];
   } else if (type === 'RECURRENT') {
@@ -51,14 +51,14 @@ function getDynamicFields(formData) {
       {
         name: 'startDate',
         label: 'Fecha de inicio',
-        type: 'text',
-        placeholder: '2025-06-15T23:56:20',
+        type: 'date',
+        placeholder: '2025-06-15',
       },
       {
         name: 'dueDate',
         label: 'Fecha de vencimiento',
-        type: 'text',
-        placeholder: '2025-06-15T23:56:20',
+        type: 'date',
+        placeholder: '2025-06-15',
       },
       {
         name: 'frequency',

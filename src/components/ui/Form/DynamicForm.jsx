@@ -4,7 +4,9 @@ import CustonSelect from '@/components/ui/Select/CustonSelect';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
+import DataPicker from '@/components/ui/DatePicker/DataPicker';
 import useToast from '@/hooks/useToast';
+import { formatFormDates } from '@/utils/formatDate';
 import './Form.css';
 
 const DynamicForm = ({
@@ -17,8 +19,21 @@ const DynamicForm = ({
   const { addToast } = useToast();
   const [formData, setFormData] = useState(() => {
     const data = {};
-    [...baseFields, ...getDynamicFields(initialValues)].forEach((f) => {
-      data[f.name] = initialValues[f.name] ?? '';
+    const allFields = [...baseFields, ...getDynamicFields(initialValues)];
+    allFields.forEach((f) => {
+      if (f.type === 'date' && initialValues[f.name]) {
+        // Normaliza a yyyy-MM-dd si viene en otro formato
+        const val = initialValues[f.name];
+        if (typeof val === 'string' && val.length >= 10) {
+          data[f.name] = val.slice(0, 10); // yyyy-MM-dd
+        } else if (val instanceof Date) {
+          data[f.name] = val.toISOString().slice(0, 10);
+        } else {
+          data[f.name] = '';
+        }
+      } else {
+        data[f.name] = initialValues[f.name] ?? '';
+      }
     });
     return data;
   });
@@ -55,7 +70,9 @@ const DynamicForm = ({
       addToast('Por favor, completa todos los campos.', 'error');
       return;
     }
-    onSubmit(formData);
+    // Formatear fechas
+    const formattedData = formatFormDates(formData, allFields);
+    onSubmit(formattedData);
   };
 
   return (
@@ -87,6 +104,16 @@ const DynamicForm = ({
                 onChange={onChange}
                 error={emptyFields[name]}
                 disabled={disabled}
+              />
+            ) : type === 'date' ? (
+              <DataPicker
+                label={label}
+                name={name}
+                value={value}
+                onChange={onChange}
+                error={emptyFields[name]}
+                disabled={disabled}
+                placeholder={placeholder}
               />
             ) : (
               <Input
