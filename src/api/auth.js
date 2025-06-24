@@ -43,7 +43,7 @@ export const apiSignUp = async (firstName, lastName, email, password) => {
     const response = await api.post('/auth/register', { firstName, lastName, email, password });
     return response.data;
   } catch (error) {
-    console.error('Error al registrar:', error);
+    throw error?.response?.data || error.message;
   }
 };
 

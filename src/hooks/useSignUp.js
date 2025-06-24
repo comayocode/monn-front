@@ -15,7 +15,7 @@ const useSignUp = () => {
       addToast(response.message, 'success');
       navigate('/login');
     } catch (error) {
-      if (error.status == 400 && error.data) {
+      if (error?.status == 400 && error?.data) {
         Object.entries(error.data).forEach(([field, message]) => {
           addToast(message, 'error');
         });
