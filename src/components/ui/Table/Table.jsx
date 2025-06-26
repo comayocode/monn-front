@@ -5,7 +5,14 @@ import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import Pagination from './Pagination';
 
-const Table = ({ data, columns, rowsPerPage = 10, onEdit, onDelete }) => {
+const Table = ({
+  data,
+  columns,
+  rowsPerPage = 10,
+  onEdit,
+  onDelete,
+  onView,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / rowsPerPage);
 
@@ -30,6 +37,7 @@ const Table = ({ data, columns, rowsPerPage = 10, onEdit, onDelete }) => {
                   columns={columns}
                   onEdit={onEdit}
                   onDelete={onDelete}
+                  onView={onView}
                 />
               ))}
           </tbody>
@@ -50,8 +58,9 @@ Table.propTypes = {
   data: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
   rowsPerPage: PropTypes.number,
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
+  onView: PropTypes.func,
 };
 
 export default Table;

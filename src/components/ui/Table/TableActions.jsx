@@ -1,27 +1,46 @@
 import editIcon from '@/assets/icons/edit-form.svg';
 import deleteIcon from '@/assets/icons/delete.svg';
+import viewIcon from '@/assets/icons/on-view.svg';
 import PropTypes from 'prop-types';
 
-const TableActions = ({ onEdit, onDelete }) => {
+const TableActions = ({ onEdit, onDelete, onView }) => {
   return (
     <div className='table__actions'>
-      <button className='table__button table__button--edit' aria-label='Editar' onClick={onEdit}>
-        <img className='table__button-img' src={editIcon} alt='Editar' />
-      </button>
-      <button
-        className='table__button table__button--delete'
-        aria-label='Editar'
-        onClick={onDelete}
-      >
-        <img className='table__button-img' src={deleteIcon} alt='Eliminar' />
-      </button>
+      {onEdit && (
+        <button
+          className='table__button table__button--edit'
+          aria-label='Editar'
+          onClick={onEdit}
+        >
+          <img className='table__button-img' src={editIcon} alt='Editar' />
+        </button>
+      )}
+      {onView && (
+        <button
+          className='table__button table__button--view'
+          aria-label='Ver'
+          onClick={onView}
+        >
+          <img className='table__button-img' src={viewIcon} alt='Ver' />
+        </button>
+      )}
+      {onDelete && (
+        <button
+          className='table__button table__button--delete'
+          aria-label='Eliminar'
+          onClick={onDelete}
+        >
+          <img className='table__button-img' src={deleteIcon} alt='Eliminar' />
+        </button>
+      )}
     </div>
   );
 };
 
 TableActions.propTypes = {
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
+  onView: PropTypes.func,
 };
 
 export default TableActions;

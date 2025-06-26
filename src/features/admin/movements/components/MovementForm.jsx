@@ -79,6 +79,7 @@ function getDynamicFields(formData) {
 const MovementsForm = ({ initialValues, onSubmit, submitText }) => {
   return (
     <DynamicForm
+      key={initialValues.id || 'new-movement'}
       baseFields={baseFields}
       getDynamicFields={getDynamicFields}
       initialValues={initialValues}

@@ -6,7 +6,7 @@ const getNestedValue = (obj, keyPath) => {
   return keyPath.split('.').reduce((acc, key) => acc?.[key], obj);
 };
 
-const TableRow = ({ row, columns, onEdit, onDelete }) => {
+const TableRow = ({ row, columns, onEdit, onDelete, onView }) => {
   return (
     <tr className='table__row'>
       {columns.map((col) => (
@@ -24,7 +24,11 @@ const TableRow = ({ row, columns, onEdit, onDelete }) => {
               '-'
             )
           ) : col.key === 'actions' ? (
-            <TableActions onEdit={() => onEdit(row)} onDelete={() => onDelete(row)} />
+            <TableActions
+              {...(onEdit ? { onEdit: () => onEdit(row) } : {})}
+              {...(onDelete ? { onDelete: () => onDelete(row) } : {})}
+              {...(onView ? { onView: () => onView(row) } : {})}
+            />
           ) : (
             getNestedValue(row, col.key)
           )}
@@ -37,8 +41,9 @@ const TableRow = ({ row, columns, onEdit, onDelete }) => {
 TableRow.propTypes = {
   row: PropTypes.object.isRequired,
   columns: PropTypes.array.isRequired,
-  onEdit: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
+  onView: PropTypes.func,
 };
 
 export default TableRow;

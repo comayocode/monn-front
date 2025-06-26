@@ -10,7 +10,14 @@ import Drawer from '@/components/ui/Drawer/Drawer';
 import { useState } from 'react';
 
 const Movements = () => {
-  const { movements, handleAddMovement, income, expense } = useMovements();
+  const {
+    movements,
+    movementToView,
+    handleToViewMovement,
+    handleAddMovement,
+    income,
+    expense,
+  } = useMovements();
   const movementsData = movements.data || [];
 
   const toggleDrawer = () => {
@@ -36,8 +43,11 @@ const Movements = () => {
         <div className='movements__table'>
           <MovementsTable
             data={movementsData}
-            onEdit={() => 'hola'}
-            onDelete={() => 'hole'}
+            onDelete={() => console.log('Delete movement')}
+            onView={(movement) => {
+              setIsDrawerOpen(true);
+              handleToViewMovement(movement);
+            }}
           />
         </div>
         <div className='movements__charts'>
@@ -56,7 +66,7 @@ const Movements = () => {
           title={'Agregar Movimiento'}
         >
           <MovementForm
-            initialValues={{}}
+            initialValues={movementToView || {}}
             onSubmit={handleAddMovement}
             submitText={'Registrar Movimiento'}
           />

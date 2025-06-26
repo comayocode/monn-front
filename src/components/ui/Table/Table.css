@@ -76,6 +76,11 @@
   border-radius: 8px 0 0 8px;
 }
 
+.table__button--view {
+  background-color: var(--btn-view);
+  border-radius: 8px 0 0 8px;
+}
+
 .table__button--delete {
   background-color: var(--btn-danger);
   border-radius: 0 8px 8px 0;
@@ -83,6 +88,11 @@
 
 .table__button--edit:hover {
   background-color: var(--cta-soft);
+  cursor: pointer;
+}
+
+.table__button--view:hover {
+  background-color: var(--btn-view-hover);
   cursor: pointer;
 }
 

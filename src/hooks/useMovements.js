@@ -10,6 +10,7 @@ const useMovements = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { addToast } = useToast();
+  const [movementToView, setMovementToView] = useState(null);
 
   useEffect(() => {
     const fetchMovements = async () => {
@@ -64,9 +65,11 @@ const useMovements = () => {
     }
   };
 
+  const handleToViewMovement = (movement) => {
+    setMovementToView(movement);
+  }
 
-
-  return { movements, handleAddMovement, income, expense, loading, error };
+  return { movements, movementToView, handleAddMovement, handleToViewMovement, income, expense, loading, error };
 };
 
 export default useMovements;
