@@ -8,6 +8,7 @@ import iconLeft from '@/assets/icons/left-nav.svg';
 import MovementForm from './components/MovementForm';
 import Drawer from '@/components/ui/Drawer/Drawer';
 import { useState } from 'react';
+import MovementView from './components/MovementView';
 
 const Movements = () => {
   const {
@@ -20,10 +21,14 @@ const Movements = () => {
   } = useMovements();
   const movementsData = movements.data || [];
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen((prev) => !prev);
-  };
+  const toggleAddMovementDrawer = () => setIsDrawerOpen((prev) => !prev);
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isViewDrawerOpen, setIsViewDrawerOpen] = useState(false);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editButtonDisabled, setEditButtonDisabled] = useState(false);
+  const [saveButtonDisabled, setSaveButtonDisabled] = useState(true);
 
   return (
     <div className='movements-container'>
@@ -34,7 +39,7 @@ const Movements = () => {
           className='movements__add-button'
           icon={iconLeft}
           iconPosition='left'
-          onClick={toggleDrawer}
+          onClick={toggleAddMovementDrawer}
         >
           Agregar movimiento
         </Button>
@@ -45,7 +50,7 @@ const Movements = () => {
             data={movementsData}
             onDelete={() => console.log('Delete movement')}
             onView={(movement) => {
-              setIsDrawerOpen(true);
+              setIsViewDrawerOpen(true);
               handleToViewMovement(movement);
             }}
           />
@@ -66,9 +71,47 @@ const Movements = () => {
           title={'Agregar Movimiento'}
         >
           <MovementForm
-            initialValues={movementToView || {}}
+            initialValues={{}}
             onSubmit={handleAddMovement}
             submitText={'Registrar Movimiento'}
+          />
+        </Drawer>
+        <Drawer
+          isOpen={isViewDrawerOpen}
+          onClose={() => {
+            setIsViewDrawerOpen(false);
+            setIsEditing(false);
+            setEditButtonDisabled(false);
+            setSaveButtonDisabled(true);
+          }}
+          title={'Detalles de Movimiento'}
+        >
+          <MovementView
+            initialValues={movementToView || {}}
+            isEditing={isEditing}
+            saveButtonDisabled={saveButtonDisabled}
+            onSubmit={(data) => {
+              setIsEditing(false);
+              setEditButtonDisabled(false);
+              setSaveButtonDisabled(true);
+              handleAddMovement(data);
+            }}
+            actionButton={
+              <Button
+                variant='primary'
+                size='small'
+                disabled={editButtonDisabled}
+                onClick={() => {
+                  setIsEditing(true);
+                  setEditButtonDisabled(true);
+                  setSaveButtonDisabled(false);
+                }}
+                type='button'
+                style={{ marginTop: 16 }}
+              >
+                Editar movimiento
+              </Button>
+            }
           />
         </Drawer>
       </div>

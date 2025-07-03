@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 import variables from '@/styles/variables.module.css';
@@ -9,7 +9,7 @@ import eyeClosedIcon from '@/assets/icons/eye-off.svg';
 import searchIcon from '@/assets/icons/search.svg';
 import CalendarIcon from '@/assets/icons/calendar.svg';
 
-const Input = ({
+const Input = React.forwardRef(({
   label,
   placeholder,
   description,
@@ -20,7 +20,7 @@ const Input = ({
   type = 'text',
   onCalendarClick,
   ...props
-}) => {
+}, ref) => {
   const { theme } = useTheme();
   const [themeClass, setThemeClass] = useState(variables['input-dark']);
 
@@ -46,6 +46,7 @@ const Input = ({
           <img src={searchIcon} alt='Buscar' className={styles.inputIcon} />
         )}
         <input
+          ref={ref}
           className={styles.input + (error ? ' ' + styles['input--error'] : '')}
           type={type}
           placeholder={placeholder}
@@ -83,19 +84,20 @@ const Input = ({
       {description && <div className={styles.description}>{description}</div>}
     </div>
   );
-};
+});
+
+Input.displayName = 'Input';
 
 Input.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   description: PropTypes.string,
-  validation: PropTypes.bool,
   error: PropTypes.bool,
   variant: PropTypes.oneOf(['text', 'password', 'search', 'calendar']),
   isPasswordVisible: PropTypes.bool,
   onTogglePassword: PropTypes.func,
   type: PropTypes.string,
-  onCalendarClick: PropTypes.func,
+  onCalendarClick: PropTypes.func
 };
 
 export default Input;

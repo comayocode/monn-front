@@ -15,6 +15,8 @@ const DynamicForm = ({
   initialValues = {},
   onSubmit,
   submitText,
+  disabledBtn,
+  fieldsDisabled // opcional, para casos como MovementView
 }) => {
   const { addToast } = useToast();
   const [formData, setFormData] = useState(() => {
@@ -48,11 +50,13 @@ const DynamicForm = ({
       ...field,
       value: formData[field.name],
       onChange: (e) => handleInputChange(field.name, e.target.value),
+      disabled: typeof fieldsDisabled === 'boolean' ? fieldsDisabled : field.disabled,
     })),
     ...getDynamicFields(formData).map((field) => ({
       ...field,
       value: formData[field.name],
       onChange: (e) => handleInputChange(field.name, e.target.value),
+      disabled: typeof fieldsDisabled === 'boolean' ? fieldsDisabled : field.disabled,
     })),
   ];
 
@@ -131,7 +135,12 @@ const DynamicForm = ({
           </div>
         )
       )}
-      <Button variant='primary' size='normal' type='submit'>
+      <Button
+        variant='primary'
+        size='normal'
+        type='submit'
+        disabled={disabledBtn}
+      >
         {submitText}
       </Button>
     </form>
@@ -144,6 +153,8 @@ DynamicForm.propTypes = {
   initialValues: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
   submitText: PropTypes.string.isRequired,
+  disabledBtn: PropTypes.bool,
+  fieldsDisabled: PropTypes.bool,
 };
 
 export default DynamicForm;

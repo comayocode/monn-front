@@ -39,6 +39,7 @@ const useMovements = () => {
       }));
       addToast('Movimiento agregado correctamente', 'success');
     } catch (err) {
+      console.error('Error agregando el movimiento:', err);
       addToast('Error al agregar el movimiento', 'error');
     }
   }
@@ -66,7 +67,11 @@ const useMovements = () => {
   };
 
   const handleToViewMovement = (movement) => {
-    setMovementToView(movement);
+    setMovementToView({
+      ...movement,
+      counterpartyName: movement.counterparty?.counterpartyName || '',
+      counterpartyId: movement.counterparty?.counterpartyId || '',
+    });
   }
 
   return { movements, movementToView, handleAddMovement, handleToViewMovement, income, expense, loading, error };
