@@ -1,6 +1,7 @@
 import DynamicForm from '@/components/ui/Form/DynamicForm';
 import PropTypes from 'prop-types';
 import { baseFields, getDynamicFields } from '@/utils/movementFields';
+import useCounterparties from '@/hooks/useCounterparties';
 
 const MovementView = ({
   initialValues,
@@ -9,12 +10,21 @@ const MovementView = ({
   actionButton,
   saveButtonDisabled,
 }) => {
+  const { counterparties } = useCounterparties();
+  // Extraer el array correcto de counterparties
+  const counterpartiesArray = counterparties.data || [];
+  console.log(counterpartiesArray);
+
+  // Pasar counterparties a getDynamicFields
+  const getDynamicFieldsWithCounterparties = (formData) =>
+    getDynamicFields(formData, counterpartiesArray);
+
   return (
     <div>
       <DynamicForm
         key={initialValues.id || 'view-movement'}
         baseFields={baseFields}
-        getDynamicFields={getDynamicFields}
+        getDynamicFields={getDynamicFieldsWithCounterparties}
         initialValues={initialValues}
         onSubmit={onSubmit}
         submitText={'Guardar Cambios'}

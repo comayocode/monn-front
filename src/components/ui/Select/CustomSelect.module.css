@@ -57,7 +57,8 @@
   overflow-y: auto;
 }
 
-.option {
+.option,
+.noOptions {
   padding: 12px 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -82,4 +83,16 @@
 
 .select--error {
   border-color: var(--field-stroke-error);
+}
+
+/* Input Búsqueda */
+.searchBar {
+  width: 80%;
+  height: 30px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.searchList {
+  list-style: none;
 }

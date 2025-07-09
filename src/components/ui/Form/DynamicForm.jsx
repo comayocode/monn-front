@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import CustonSelect from '@/components/ui/Select/CustonSelect';
+import SelectSearch from '@/components/ui/Select/SelectSearch';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
@@ -16,7 +17,7 @@ const DynamicForm = ({
   onSubmit,
   submitText,
   disabledBtn,
-  fieldsDisabled // opcional, para casos como MovementView
+  fieldsDisabled, // opcional, para casos como MovementView
 }) => {
   const { addToast } = useToast();
   const [formData, setFormData] = useState(() => {
@@ -41,8 +42,12 @@ const DynamicForm = ({
   });
   const [emptyFields, setEmptyFields] = useState({});
 
-  const handleInputChange = (name, value) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleInputChange = (name, value, extra = {}) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+      ...extra, // permite actualizar otros campos
+    }));
   };
 
   const fields = [
@@ -50,14 +55,41 @@ const DynamicForm = ({
       ...field,
       value: formData[field.name],
       onChange: (e) => handleInputChange(field.name, e.target.value),
-      disabled: typeof fieldsDisabled === 'boolean' ? fieldsDisabled : field.disabled,
+      disabled:
+        typeof fieldsDisabled === 'boolean' ? fieldsDisabled : field.disabled,
     })),
-    ...getDynamicFields(formData).map((field) => ({
-      ...field,
-      value: formData[field.name],
-      onChange: (e) => handleInputChange(field.name, e.target.value),
-      disabled: typeof fieldsDisabled === 'boolean' ? fieldsDisabled : field.disabled,
-    })),
+    ...getDynamicFields(formData).map((field) => {
+      // Si es el campo "counterpartyName", intercepta el cambio para cambiar el ID de counterpartyID en el FORM
+      if (field.name === 'counterpartyName' && field.type === 'select-search') {
+        return {
+          ...field,
+          value: formData[field.name],
+          onChange: (e) => {
+            const selectedId = e.target.value;
+            // Busca el objeto seleccionado en las options
+            const selected = (field.options || []).find(
+              (opt) => opt.value === selectedId
+            );
+            handleInputChange(
+              field.name,
+              selectedId,
+              selected ? { counterpartyId: selected.id } : {}
+            );
+          },
+          disabled:
+            typeof fieldsDisabled === 'boolean'
+              ? fieldsDisabled
+              : field.disabled,
+        };
+      }
+      return {
+        ...field,
+        value: formData[field.name],
+        onChange: (e) => handleInputChange(field.name, e.target.value),
+        disabled:
+          typeof fieldsDisabled === 'boolean' ? fieldsDisabled : field.disabled,
+      };
+    }),
   ];
 
   const handleSubmit = (e) => {
@@ -101,6 +133,16 @@ const DynamicForm = ({
               />
             ) : type === 'select' ? (
               <CustonSelect
+                label={label}
+                name={name}
+                options={options || []}
+                value={value}
+                onChange={onChange}
+                error={emptyFields[name]}
+                disabled={disabled}
+              />
+            ) : type === 'select-search' ? (
+              <SelectSearch
                 label={label}
                 name={name}
                 options={options || []}

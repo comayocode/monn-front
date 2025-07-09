@@ -21,7 +21,10 @@ export const baseFields = [
   },
 ];
 
-export function getDynamicFields(formData) {
+export function getDynamicFields(formData, counterparties = []) {
+  // Asegura que counterparties sea un array
+  const safeCounterparties = Array.isArray(counterparties) ? counterparties : [];
+
   const type = formData.type;
   if (type === 'DEBT' || type === 'LOAN') {
     return [
@@ -40,7 +43,12 @@ export function getDynamicFields(formData) {
       {
         name: 'counterpartyName',
         label: 'Contraparte',
-        type: 'text',
+        type: 'select-search',
+        options: safeCounterparties.map(c => ({
+          id: c.id,
+          value: String(c.id), // usar id como value único
+          label: c.counterpartyName || c.name // mostrar el nombre
+        })),
       },
     ];
   } else if (type === 'RECURRENT') {
@@ -66,7 +74,12 @@ export function getDynamicFields(formData) {
       {
         name: 'counterpartyName',
         label: 'Contraparte',
-        type: 'text',
+        type: 'select-search',
+        options: safeCounterparties.map(c => ({
+          id: c.id,
+          value: String(c.id), // usar id como value único
+          label: c.counterpartyName || c.name
+        })),
       },
       {
         name: 'frequency',

@@ -5,6 +5,7 @@ import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import CustonSelect from '@/components/ui/Select/CustonSelect';
+import SelectSearch from '@/components/ui/Select/SelectSearch';
 import useToast from '@/hooks/useToast';
 
 const Form = ({
@@ -82,6 +83,15 @@ const Form = ({
               />
             ) : type === 'select' ? (
               <CustonSelect
+                label={label}
+                name={name}
+                options={options || []}
+                value={formData[name]}
+                onChange={(e) => handleInputChange(name, e.target.value)}
+                disabled={disabled}
+              />
+            ) : type === 'select-search' ? (
+              <SelectSearch
                 label={label}
                 name={name}
                 options={options || []}
