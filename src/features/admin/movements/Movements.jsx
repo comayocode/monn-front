@@ -16,6 +16,7 @@ const Movements = () => {
     movementToView,
     handleToViewMovement,
     handleAddMovement,
+    handleUpdateMovement,
     income,
     expense,
   } = useMovements();
@@ -90,11 +91,17 @@ const Movements = () => {
             initialValues={movementToView || {}}
             isEditing={isEditing}
             saveButtonDisabled={saveButtonDisabled}
-            onSubmit={(data) => {
+            onSubmit={async (data) => {
               setIsEditing(false);
               setEditButtonDisabled(false);
               setSaveButtonDisabled(true);
-              handleAddMovement(data);
+              // Agrega el id del movimiento a la data del form
+              await handleUpdateMovement({
+                ...data,
+                id: movementToView?.id,
+                // TODO: Quitar luego de actualizar endpoint para que no sea requerido remainingAmount
+                remainingAmount: movementToView?.remainingAmount
+              });
             }}
             actionButton={
               <Button

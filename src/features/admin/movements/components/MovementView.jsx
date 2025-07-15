@@ -13,8 +13,6 @@ const MovementView = ({
   const { counterparties } = useCounterparties();
   // Extraer el array correcto de counterparties
   const counterpartiesArray = counterparties.data || [];
-  console.log(counterpartiesArray);
-
   // Pasar counterparties a getDynamicFields
   const getDynamicFieldsWithCounterparties = (formData) =>
     getDynamicFields(formData, counterpartiesArray);

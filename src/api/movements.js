@@ -19,6 +19,17 @@ export const apiAddMovement = async (data) => {
   }
 };
 
+export const apiUpdateMovement = async (userId, userData) => {
+  try {
+    const response = await api.put(`/movements/${userId}`, userData);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error al actualizar movimiento:', error);
+    throw error?.response?.data || error.message;
+  }
+};
+
 export const apiGetMovementsByIncome = async () => {
   try {
     const response = await api.get(`/movements?type=${'INCOME'}`);
